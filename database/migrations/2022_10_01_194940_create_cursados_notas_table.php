@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedSmallInteger('nota');
             $table->unsignedSmallInteger('estado');
-            $table->unsignedBitInteger('id_comision');
+            $table->unsignedBigInteger('id_comision');
             $table->timestamps();
 
             $table->foreign('id_comision')->references('id')->on('comisiones')->onUpdate('cascade')->onDelete('cascade');

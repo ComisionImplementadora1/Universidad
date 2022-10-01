@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('departamentos', function (Blueprint $table) {
             $table->id();
-            $table->unisgnedSmallInteger('codigo');
+            $table->unsignedSmallInteger('codigo');
             $table->text('nombre');
             $table->timestamps();
         });
