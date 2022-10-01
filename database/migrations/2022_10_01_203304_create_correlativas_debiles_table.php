@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id_materia_origen');
             $table->unsignedBigInteger('id_materia_correlativa');
             
-            $table->foreign('id_materia_origen')->references('id')->on('materias')->onDelete('cascade');
-            $table->foreign('id_materia_correlativa')->references('id')->on('materias')->onDelete('cascade');
+            $table->foreign('id_materia_origen')->references('id')->on('materias')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_materia_correlativa')->references('id')->on('materias')->onUpdate('cascade')->onDelete('cascade');
             
             $table->timestamps();
         });

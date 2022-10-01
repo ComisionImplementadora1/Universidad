@@ -13,17 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('examenes_finales_notas', function (Blueprint $table) {
+        Schema::create('inscriptos_examenes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedSmallInteger('nota');
-            $table->unsignedSmallInteger('estado');
-            $table->unsignedBigInteger('id_examen_final');
+
+            $table->unsignedBigInteger('id_examen');
             $table->unsignedBigInteger('id_alumno');
-
-            $table->timestamps();
-
-            $table->foreign('id_examen_final')->references('id')->on('examenes_finales')->onUpdate('cascade')->onDelete('cascade');
+            
+            $table->foreign('id_examen')->references('id')->on('examenes_finales')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('id_alumno')->references('id')->on('alumnos')->onUpdate('cascade')->onDelete('cascade');
+           
+            $table->timestamps();
         });
     }
 
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('examen_final_notas');
+        Schema::dropIfExists('inscriptos_examenes');
     }
 };

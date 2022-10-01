@@ -19,6 +19,15 @@ return new class extends Migration
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->unsignedInteger('cupo');
+
+            $table->unsignedBigInteger('id_profesor');
+            $table->unsignedBigInteger('id_asistente');
+            $table->unsignedBigInteger('id_materia');
+
+            $table->foreign('id_profesor')->references('id')->on('docentes')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_asistente')->references('id')->on('docentes')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_materia')->references('id')->on('materias')->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
