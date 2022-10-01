@@ -20,8 +20,6 @@ return new class extends Migration
             $table->unsignedSmallInteger('dni')->unique();
             $table->date('fecha de nacimiento');
             $table->string('mail')->unique();
-            $table->string('usuario')->unique();
-            $table->string('contraseña');
             
             $table->unsignedBigInteger('id_carrera');
             

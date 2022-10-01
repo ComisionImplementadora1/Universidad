@@ -17,11 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedSmallInteger('legajo');
             $table->unsignedSmallInteger('dni');
-            $table->date('fecha de nacimiento');
+            $table->date('fecha_de_nacimiento');
             $table->string('mail')->unique();
-            $table->string('usuario')->unique();
-            $table->string('contraseña');
-            $table->unsignedSmallInteger('rol');
             $table->timestamps();
         });
     }
