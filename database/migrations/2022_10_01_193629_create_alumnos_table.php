@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string('mail')->unique();
             $table->string('usuario')->unique();
             $table->string('contraseña');
+            
+            $table->unsignedBigInteger('id_carrera');
+            
+            $table->foreign('id_carrera')->references('id')->on('carreras')->onDelete('cascade');
             $table->timestamps();
         });
     }

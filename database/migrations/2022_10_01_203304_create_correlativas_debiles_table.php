@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('carreras', function (Blueprint $table) {
+        Schema::create('correlativas_debiles', function (Blueprint $table) {
             $table->id();
-            $table->unisgnedSamllInteger('codigo');
-            $table->text('nombre');
+            $table->unsignedBigInteger('id_materia_origen');
+            $table->unsignedBigInteger('id_materia_correlativa');
             
-            $table->unsignedBigInteger('id_departamento');
+            $table->foreign('id_materia_origen')->references('id')->on('materias')->onDelete('cascade');
+            $table->foreign('id_materia_correlativa')->references('id')->on('materias')->onDelete('cascade');
             
-            $table->foreign('id_departamento')->references('id')->on('departamentos')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carreras');
+        Schema::dropIfExists('correlativas_debiles');
     }
 };
