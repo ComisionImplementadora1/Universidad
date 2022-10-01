@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('examen_final_nota', function (Blueprint $table) {
+        Schema::create('examenes_finales_notas', function (Blueprint $table) {
             $table->id();
             $table->unsignedSmallInteger('nota');
             $table->unsignedSmallInteger('estado');
+            $table->unsignedBigInteger('id_examen_final');
             $table->timestamps();
+
+            $table->foreign('id_examen_final')->references('id')->on('examenes_finales')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
