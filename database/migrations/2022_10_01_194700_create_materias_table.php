@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('materias', function (Blueprint $table) {
             $table->id();
-            $table->codigo();
-            $table->string('name');
+            $table->string('codigo');
+            $table->string('nombre');
             $table->timestamps();
         });
     }

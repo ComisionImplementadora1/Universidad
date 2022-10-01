@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('alumnos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->smallInteger('lu')->unique();
-            $table->smallInteger('dni')->unique();
+            $table->unsignedSmallInteger('lu')->unique();
+            $table->unsignedSmallInteger('dni')->unique();
             $table->date('fecha de nacimiento');
             $table->string('mail')->unique();
             $table->string('usuario')->unique();

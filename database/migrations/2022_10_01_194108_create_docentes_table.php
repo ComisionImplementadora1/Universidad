@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('docentes', function (Blueprint $table) {
             $table->id();
-            $table->smallint('legajo');
-            $table->smallint('dni');
+            $table->unsignedSmallInteger('legajo');
+            $table->unsignedSmallInteger('dni');
             $table->date('fecha de nacimiento');
             $table->string('mail')->unique();
             $table->string('usuario')->unique();
             $table->string('contraseña');
-            $table->smallint('rol');
+            $table->unsignedSmallInteger('rol');
             $table->timestamps();
         });
     }
