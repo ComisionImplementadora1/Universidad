@@ -14,7 +14,7 @@ class DocentesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('drivers')->insert([
+        DB::table('docentes')->insert([
             'nombre'=>'Ana Falcon',
             'legajo' => '88789',
             'DNI' => '21234654',
@@ -26,7 +26,7 @@ class DocentesSeeder extends Seeder
 
             ]);
 
-        DB::table('drivers')->insert([
+        DB::table('docentes')->insert([
             'nombre'=>'Juana Perez',
             'legajo' => '88778',
             'DNI' => '18434564',
@@ -38,7 +38,7 @@ class DocentesSeeder extends Seeder
 
             ]);
 
-        DB::table('drivers')->insert([
+        DB::table('docentes')->insert([
             'nombre'=>'Sergio Corpaz',
             'legajo' => '99782',
             'DNI' => '23098007',
@@ -50,7 +50,7 @@ class DocentesSeeder extends Seeder
 
             ]);
 
-        DB::table('drivers')->insert([
+        DB::table('docentes')->insert([
             'nombre'=>'Maximiliano Montesinos',
             'legajo' => '25924',
             'DNI' => '19456478',
@@ -62,7 +62,7 @@ class DocentesSeeder extends Seeder
 
             ]);
 
-        DB::table('drivers')->insert([
+        DB::table('docentes')->insert([
             'nombre'=>'Gabriel Fernandez',
             'legajo' => '66589',
             'DNI' => '18566432',
@@ -74,7 +74,7 @@ class DocentesSeeder extends Seeder
 
             ]);
 
-        DB::table('drivers')->insert([
+        DB::table('docentes')->insert([
             'nombre'=>'Joaquin Navarro',
             'legajo' => '89724',
             'DNI' => '29432123',
@@ -86,7 +86,7 @@ class DocentesSeeder extends Seeder
 
             ]);
 
-        DB::table('drivers')->insert([
+        DB::table('docentes')->insert([
             'nombre'=>'Diana Chavez',
             'legajo' => '77891',
             'DNI' => '22455567',
@@ -98,7 +98,7 @@ class DocentesSeeder extends Seeder
 
             ]);
 
-        DB::table('drivers')->insert([
+        DB::table('docentes')->insert([
             'nombre'=>'Nicolas Pontet',
             'legajo' => '77310',
             'DNI' => '23459753',
@@ -110,7 +110,7 @@ class DocentesSeeder extends Seeder
 
             ]);
 
-        DB::table('drivers')->insert([
+        DB::table('docentes')->insert([
             'nombre'=>'Cristian Angelini',
             'legajo' => '44710',
             'DNI' => '20765432',
@@ -122,7 +122,7 @@ class DocentesSeeder extends Seeder
 
             ]);
 
-        DB::table('drivers')->insert([
+        DB::table('docentes')->insert([
             'nombre'=>'Laura Quiroz',
             'legajo' => '33471',
             'DNI' => '21874764',
