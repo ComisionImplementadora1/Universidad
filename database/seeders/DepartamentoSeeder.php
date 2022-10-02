@@ -19,5 +19,7 @@ class DepartamentoSeeder extends Seeder
             'codigo'=>'DCIC',
             'nombre'=>'Departamento de Ciencias e Ingeniería de la Computación'
         ]);
+
+
     }
 }
