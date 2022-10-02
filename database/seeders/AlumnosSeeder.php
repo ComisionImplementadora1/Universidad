@@ -15,7 +15,7 @@ class AlumnosSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('drivers')->insert([
+        DB::table('alumnos')->insert([
             'nombre'=>'Hernan Indigo',
             'LU' => '101205',
             'DNI' => '32432423',
@@ -29,7 +29,7 @@ class AlumnosSeeder extends Seeder
 
             ]);
 
-        DB::table('drivers')->insert([
+        DB::table('alumnos')->insert([
             'nombre'=>'Oriana Diaz',
             'LU' => '101206',
             'DNI' => '41123543',
@@ -43,7 +43,7 @@ class AlumnosSeeder extends Seeder
 
             ]);
 
-         DB::table('drivers')->insert([
+         DB::table('alumnos')->insert([
             'nombre'=>'Pedro Perez',
             'LU' => '101207',
             'DNI' => '40987786',
@@ -57,7 +57,7 @@ class AlumnosSeeder extends Seeder
 
             ]);
 
-         DB::table('drivers')->insert([
+         DB::table('alumnos')->insert([
             'nombre'=>'Derek Iraoz',
             'LU' => '101208',
             'DNI' => '38765678',
@@ -71,7 +71,7 @@ class AlumnosSeeder extends Seeder
 
             ]);
 
-         DB::table('drivers')->insert([
+         DB::table('alumnos')->insert([
             'nombre'=>'Luciana Mercado',
             'LU' => '101209',
             'DNI' => '32345654',
@@ -85,7 +85,7 @@ class AlumnosSeeder extends Seeder
 
             ]);
 
-         DB::table('drivers')->insert([
+         DB::table('alumnos')->insert([
             'nombre'=>'Uriel Ortiz',
             'LU' => '101210',
             'DNI' => '43543654',
