@@ -21,7 +21,7 @@ class carrerasController extends Controller
             $departamentos_array = Arr::add($departamentos_array, $carrera->departamento_id, Departamento::find($carrera->departamento_id)->nombre);
         } 
 
-        return view('carrera.index')->with('carreras',$carreras);
+        return view('carreras.index')->with('carreras',$carreras);
     }
 
     /**
@@ -33,7 +33,7 @@ class carrerasController extends Controller
     {
         $carreras = carrera::all();
         $departamentos = departamento::all();
-        return view('carrera.create')->with('carreras',$carreras)->with('departamentos',$departamentos);
+        return view('carreras.create')->with('carreras',$carreras)->with('departamentos',$departamentos);
     }
 
     /**

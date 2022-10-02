@@ -15,7 +15,7 @@ class departamentosController extends Controller
     public function index()
     {
         $departamentos = departamento::paginate(20);
-        return view('departamento.index')->with('departamentos',$departamentos);
+        return view('departamentos.index')->with('departamentos',$departamentos);
     }
 
     /**
