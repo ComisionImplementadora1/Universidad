@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CarrerasSeeder extends Seeder
 {
@@ -16,20 +17,20 @@ class CarrerasSeeder extends Seeder
     {
         DB::table('carreras')->insert([
             'codigo'=>'LCC',
-            'Nombre'=> 'Ingeniería en Sistemas de Información',
-            'Materias_codigos' => '5912-5793-5551-7713-7791'
-            ]);
+            'nombre'=> 'Licenciatura en Ciencias de la Computación',
+            'id_departamento' => '1',
+        ]);
 
         DB::table('carreras')->insert([
             'codigo'=>'ISI',
-            'Nombre'=> 'Ingeniería en Sistemas de Información',
-            'Materias_codigos' => '5912-5793-5551-7713-7791-7714'
-            ]);
+            'nombre'=> 'Ingeniería en Sistemas de Información',
+            'id_departamento' => '1',
+        ]);
 
         DB::table('carreras')->insert([
             'codigo'=>'IC',
-            'Nombre'=> 'Ingeniería en Computación',
-            'Materias_codigos' => '5912-5793-5551-7713-7791-3051'
-            ]);
+            'nombre'=> 'Ingeniería en Computación',
+            'id_departamento' => '1',
+        ]);
     }
 }

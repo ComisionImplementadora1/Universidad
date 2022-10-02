@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->unsignedInteger('lu')->unique();
             $table->unsignedInteger('dni')->unique();
-            $table->date('fecha de nacimiento');
+            $table->date('fecha_de_nacimiento');
             $table->string('mail')->unique();
             
             $table->unsignedBigInteger('id_carrera');

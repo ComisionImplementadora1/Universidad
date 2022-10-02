@@ -17,86 +17,56 @@ class AlumnosSeeder extends Seeder
     {
         DB::table('alumnos')->insert([
             'nombre'=>'Hernan Indigo',
-            'LU' => '101205',
-            'DNI' => '32432423',
-            'FechaNacimiento' => '2001-09-20',
-            'Mail' => 'her_ind@outlook.com',
-            'Usuario' => 'hernanIndigo',
-            'Contrasena' => 'abc123',
-            'Carrera' => 'IC',
-            'HistorialMaterias' => '0,1,2,3,4',
-            'HistorialExamenesFinales' => ''
-
+            'lu' => '101205',
+            'dni' => '32432423',
+            'fecha_de_nacimiento' => '2001-09-20',
+            'mail' => 'her_ind@outlook.com',
+            'id_carrera' => '3',
             ]);
 
         DB::table('alumnos')->insert([
             'nombre'=>'Oriana Diaz',
-            'LU' => '101206',
-            'DNI' => '41123543',
-            'FechaNacimiento' => '2001-08-02',
-            'Mail' => 'ori.diaz@gmail.cm',
-            'Usuario' => 'oriDiaz',
-            'Contrasena' => 'bca928',
-            'Carrera' => 'LCC' ,
-            'HistorialMaterias' => '5,6,7,8' ,
-            'HistorialExamenesFinales' => ''
-
-            ]);
+            'lu' => '101206',
+            'dni' => '41123543',
+            'fecha_de_nacimiento' => '2001-08-02',
+            'mail' => 'ori.diaz@gmail.cm',
+            'id_carrera' => '1',
+         ]);
 
          DB::table('alumnos')->insert([
             'nombre'=>'Pedro Perez',
-            'LU' => '101207',
-            'DNI' => '40987786',
-            'FechaNacimiento' => '2001-10-01',
-            'Mail' => 'peterperez@live.com',
-            'Usuario' => 'pedroPerez',
-            'Contrasena' => 'adfm543',
-            'Carrera' => 'IC',
-            'HistorialMaterias' => '9,10,11,12,13,14' ,
-            'HistorialExamenesFinales' => '1,4' 
-
-            ]);
+            'lu' => '101207',
+            'dni' => '40987786',
+            'fecha_de_nacimiento' => '2001-10-01',
+            'mail' => 'peterperez@live.com',
+            'id_carrera' => '3',
+         ]);
 
          DB::table('alumnos')->insert([
             'nombre'=>'Derek Iraoz',
-            'LU' => '101208',
-            'DNI' => '38765678',
-            'FechaNacimiento' => '2001-05-06',
-            'Mail' => 'iraozdk@gmail.com',
-            'Usuario' => 'derekIraoz',
-            'Contrasena' => 'pok983',
-            'Carrera' => 'ISI',
-            'HistorialMaterias' => '15,16,17,18,19,20' ,
-            'HistorialExamenesFinales' => ''
-
-            ]);
+            'lu' => '101208',
+            'dni' => '38765678',
+            'fecha_de_nacimiento' => '2001-05-06',
+            'mail' => 'iraozdk@gmail.com',
+            'id_carrera' => '2',
+         ]);
 
          DB::table('alumnos')->insert([
             'nombre'=>'Luciana Mercado',
-            'LU' => '101209',
-            'DNI' => '32345654',
-            'FechaNacimiento' => '2000-02-01',
-            'Mail' => 'mercadoluciana@gmial.com',
-            'Usuario' => 'lucianaMercado',
-            'Contrasena' => 'ssd231',
-            'Carrera' => 'ISI',
-            'HistorialMaterias' => '21,22,23,24,25,26 ',
-            'HistorialExamenesFinales' => '2'
-
-            ]);
+            'lu' => '101209',
+            'dni' => '32345654',
+            'fecha_de_nacimiento' => '2000-02-01',
+            'mail' => 'mercadoluciana@gmial.com',
+            'id_carrera' => '2',
+         ]);
 
          DB::table('alumnos')->insert([
             'nombre'=>'Uriel Ortiz',
-            'LU' => '101210',
-            'DNI' => '43543654',
-            'FechaNacimiento' => '2000-06-01',
-            'Mail' => 'uri_pz@gmail.com',
-            'Usuario' => 'urielOrtiz',
-            'Contrasena' => 'hms211',
-            'Carrera' => 'LCC' ,
-            'HistorialMaterias' => '27,28,29,30',
-            'HistorialExamenesFinales' => '3'
-
-            ]);
+            'lu' => '101210',
+            'dni' => '43543654',
+            'fecha_de_nacimiento' => '2000-06-01',
+            'mail' => 'uri_pz@gmail.com',
+            'id_carrera' => '1',
+         ]);
     }
 }

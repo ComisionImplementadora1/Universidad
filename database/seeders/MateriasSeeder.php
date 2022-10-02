@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class MateriasSeeder extends Seeder
 {
@@ -15,60 +16,75 @@ class MateriasSeeder extends Seeder
     public function run()
     {
         DB::table('materias')->insert([
-            'Codgigo'=>'5912',
-            'Nombre' => 'Elementos de Algebra y Geometría',
-            'CorrelativasFuertes_codigos' => '',
-            'CorrelativasDebiles_codigos' => '',
-            'Carreras_codigos'=> 'LCC, ISI, IC'
-            ]);
+            'codigo'=>'5912',
+            'nombre' => 'Elementos de Algebra y Geometría',
+            'id_carrera' => '1'
+        ]);
 
         DB::table('materias')->insert([
-            'Codgigo'=>'5793',
-            'Nombre' => 'Resolución de problemas y algoritmos',
-            'CorrelativasFuertes_codigos' => '',
-            'CorrelativasDebiles_codigos' => '',
-            'Carreras_codigos'=> 'LCC, ISI, IC'
-            ]);
+            'codigo'=>'5912',
+            'nombre' => 'Elementos de Algebra y Geometría',
+            'id_carrera' => '2'
+        ]);
 
         DB::table('materias')->insert([
-            'Codgigo'=>'5551',
-            'Nombre' => 'Análisis Matemático I',
-            'CorrelativasFuertes_codigos' => '',
-            'CorrelativasDebiles_codigos' => '',
-            'Carreras_codigos'=> 'LCC, ISI, IC'
-            ]);
+            'codigo'=>'5912',
+            'nombre' => 'Elementos de Algebra y Geometría',
+            'id_carrera' => '3'
+        ]);
 
         DB::table('materias')->insert([
-            'Codgigo'=>'7713',
-            'Nombre' => 'Introducción a la Programación Orientada a Objetos',
-            'CorrelativasFuertes_codigos' => '5912-5793',
-            'CorrelativasDebiles_codigos' => '',
-            'Carreras_codigos'=> 'LCC, ISI, IC'
-            ]);
+            'codigo'=>'5793',
+            'nombre' => 'Resolución de problemas y algoritmos',
+            'id_carrera' => '1'
+        ]);
 
         DB::table('materias')->insert([
-            'Codgigo'=>'7791',
-            'Nombre' => 'Lenguajes Formales y Autómatas',
-            'CorrelativasFuertes_codigos' => '5912-5794',
-            'CorrelativasDebiles_codigos' => '',
-            'Carreras_codigos'=> 'LCC, ISI, IC'
-            ]);
+            'codigo'=>'5793',
+            'nombre' => 'Resolución de problemas y algoritmos',
+            'id_carrera' => '2'
+        ]);
 
         DB::table('materias')->insert([
-            'Codgigo'=>'3051',
-            'Nombre' => 'Fisica I',
-            'CorrelativasFuertes_codigos' => '',
-            'CorrelativasDebiles_codigos' => '5551-5912',
-            'Carreras_codigos'=> 'LCC, ISI, IC'
-            ]);
+            'codigo'=>'5793',
+            'nombre' => 'Resolución de problemas y algoritmos',
+            'id_carrera' => '3'
+        ]);
 
         DB::table('materias')->insert([
-            'Codgigo'=>'7714',
-            'Nombre' => 'Introducción a la Ingeniería de Software',
-            'CorrelativasFuertes_codigos' => '',
-            'CorrelativasDebiles_codigos' => '',
-            'Carreras_codigos'=> 'ISI'
-            ]);
+            'codigo'=>'5551',
+            'nombre' => 'Análisis Matemático I',
+            'id_carrera' => '1'
+        ]);
+
+        DB::table('materias')->insert([
+            'codigo'=>'5551',
+            'nombre' => 'Análisis Matemático I',
+            'id_carrera' => '2'
+        ]);
+
+        DB::table('materias')->insert([
+            'codigo'=>'5551',
+            'nombre' => 'Análisis Matemático I',
+            'id_carrera' => '3'
+        ]);
+
+        DB::table('materias')->insert([
+            'codigo'=>'7713',
+            'nombre' => 'Introducción a la Programación Orientada a Objetos',
+            'id_carrera' => '1'
+        ]);
+
+        DB::table('materias')->insert([
+            'codigo'=>'7713',
+            'nombre' => 'Introducción a la Programación Orientada a Objetos',
+            'id_carrera' => '2'
+        ]);
+
+        DB::table('materias')->insert([
+            'codigo'=>'7713',
+            'nombre' => 'Introducción a la Programación Orientada a Objetos',
+            'id_carrera' => '3'
+        ]);
     }
-
 }
