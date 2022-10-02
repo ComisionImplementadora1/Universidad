@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('examenes_finales_notas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedSmallInteger('nota');
-            $table->unsignedSmallInteger('estado');
+            $table->unsignedInteger('nota');
+            $table->unsignedInteger('estado');
             $table->unsignedBigInteger('id_examen_final');
             $table->unsignedBigInteger('id_alumno');
 

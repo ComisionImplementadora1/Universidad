@@ -3,7 +3,7 @@
 @section('contenido')
 <h1 class="d-flex justify-content-center">Alumnos</h1>
 <div class="d-flex justify-content-end">
-    <a href="materias/create" class="btn btn-success">Crear docente</a>
+    <a href="alumnos/create" class="btn btn-success">Crear alumno</a>
 </div>
 <table class="table table-secondary text-center mt-5">
     <thead>
@@ -13,6 +13,7 @@
             <th scope="col">DNI</th>
             <th scope="col">Fecha de nacimiento</th>
             <th scope="col">Mail</th>
+            <th scope="col">Acciones</th>
         </tr>
     </thead>
     <tbody class="text-center">

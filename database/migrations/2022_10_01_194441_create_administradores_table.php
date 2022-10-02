@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('administradores', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->unsignedSmallInteger('legajo');
-            $table->unsignedSmallInteger('dni');
+            $table->unsignedInteger('legajo');
+            $table->unsignedInteger('dni');
             $table->string('mail');
             $table->timestamps();
         });

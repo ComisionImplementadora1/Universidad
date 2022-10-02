@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('carreras', function (Blueprint $table) {
             $table->id();
-            $table->unsignedSmallInteger('codigo');
+            $table->unsignedInteger('codigo');
             $table->text('nombre');
             
             $table->unsignedBigInteger('id_departamento');

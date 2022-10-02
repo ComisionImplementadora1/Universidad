@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('docentes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedSmallInteger('legajo');
-            $table->unsignedSmallInteger('dni');
+            $table->unsignedInteger('legajo');
+            $table->unsignedInteger('dni');
             $table->date('fecha_de_nacimiento');
             $table->string('mail')->unique();
             $table->timestamps();

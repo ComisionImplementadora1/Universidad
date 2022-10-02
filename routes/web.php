@@ -24,5 +24,7 @@ Route::get('/dashboard', function () {
 Route::resource('materias', 'App\Http\Controllers\materiasController')->middleware(['auth']);
 Route::resource('carreras', 'App\Http\Controllers\carrerasController')->middleware(['auth']);
 Route::resource('departamentos', 'App\Http\Controllers\departamentosController')->middleware(['auth']);
+Route::resource('alumnos', 'App\Http\Controllers\alumnosController')->middleware(['auth']);
+Route::resource('docentes', 'App\Http\Controllers\docentesController')->middleware(['auth']);
 
 require __DIR__.'/auth.php';
