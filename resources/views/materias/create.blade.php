@@ -16,11 +16,11 @@
 <form action="/materias" method="POST">
     @csrf
     <div class="mb-3">
-        <label for="" class="form-label">Codigo</label>
+        <label for="" class="form-label fs-3">Codigo</label>
         <input type="text" class="form-control" id="codigo" name="codigo" value="{{ old('name') }}">
     </div>
     <div class="mb-3">
-        <label for="" class="form-label">Nombre</label>
+        <label for="" class="form-label fs-3">Nombre</label>
         <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre') }}">
     </div>
     <div class="d-flex justify-content-center">
