@@ -15,7 +15,7 @@ class DepartamentoSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('drivers')->insert([
+        DB::table('departamentos')->insert([
             'codigo'=>'DCIC',
             'nombre'=>'Departamento de Ciencias e Ingeniería de la Computación'
         ]);
