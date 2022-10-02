@@ -31,9 +31,8 @@ class carrerasController extends Controller
      */
     public function create()
     {
-        $carreras = carrera::all();
         $departamentos = departamento::all();
-        return view('carreras.create')->with('carreras',$carreras)->with('departamentos',$departamentos);
+        return view('carreras.create')->with('departamentos',$departamentos);
     }
 
     /**

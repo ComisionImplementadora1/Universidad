@@ -27,7 +27,7 @@
         <label for="" class="form-label fs-3">Departamento</label>
         <select id="departamento" name="departamento" class="form-select" value="{{old('nombre')}}" tabindex="1">
             @foreach ($departamentos as $departamento)
-                <option x-data-cant="{{$departamento->nombre}}" value="{{$departamento->id}}">{{$departamento->nombre}}</option>
+                <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
             @endforeach
         </select>
     </div>

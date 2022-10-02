@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\materia;
+use App\Models\carrera;
 use App\Models\correlativas_debiles;
 use App\Models\correlativas_fuertes;
 
@@ -27,7 +28,9 @@ class materiasController extends Controller
      */
     public function create()
     {
-        return view('materias.create');
+        $materias = materia::all();
+        $carreras = carrera::all();
+        return view('materias.create')->with('correlativas', $materias)->with('carreras', $carreras);
     }
 
     /**
@@ -38,7 +41,52 @@ class materiasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'codigo'=> 'required|unique',
+            'nombre'=> 'required',
+            'carrera'=> 'required'
+        ]);
+
+        $materia = new materia();
+
+        $materia->codigo = $request->get('codigo');
+        $materia->nombre = $request->get('nombre');
+        $materia->carrera = $request->get('carrera');
+        $materia->save();
+
+        $correlativa_fuerte = $request->get('fuerte_1');
+        if ($correlativa_fuerte != "No tiene"){
+           $correlativaNueva = new correlativas_fuertes();
+           $correlativaNueva->id_materia_origen = $materia->id();
+           $correlativaNueva->id_correlativa = $correlativa_fuerte;
+           $correlativaNueva->save();
+        }
+
+        $correlativa_fuerte = $request->get('fuerte_2');
+        if ($correlativa_fuerte != "No tiene"){
+           $correlativaNueva = new correlativas_fuertes();
+           $correlativaNueva->id_materia_origen = $materia->id();
+           $correlativaNueva->id_correlativa = $correlativa_fuerte;
+           $correlativaNueva->save();
+        }
+
+        $correlativa_debil = $request->get('debil_1');
+        if ($correlativa_debil != "No tiene"){
+           $correlativaNueva = new correlativas_debiles();
+           $correlativaNueva->id_materia_origen = $materia->id();
+           $correlativaNueva->id_correlativa = $correlativa_debil;
+           $correlativaNueva->save();
+        }
+
+        $correlativa_debil = $request->get('debil_2');
+        if ($correlativa_debil != "No tiene"){
+           $correlativaNueva = new correlativas_debiles();
+           $correlativaNueva->id_materia_origen = $materia->id();
+           $correlativaNueva->id_correlativa = $correlativa_debil;
+           $correlativaNueva->save();
+        }        
+
+        return redirect('/materias');
     }
 
     /**
