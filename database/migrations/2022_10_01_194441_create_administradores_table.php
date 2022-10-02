@@ -19,8 +19,6 @@ return new class extends Migration
             $table->unsignedSmallInteger('legajo');
             $table->unsignedSmallInteger('dni');
             $table->string('mail');
-            $table->string('usuario');
-            $table->string('contraseña');
             $table->timestamps();
         });
     }
