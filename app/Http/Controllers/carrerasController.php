@@ -16,11 +16,6 @@ class carrerasController extends Controller
     public function index()
     {
         $carreras = carrera::paginate(20);
-        $departamentos_array = [];
-        foreach($carreras as $carrera){
-            $departamentos_array = Arr::add($departamentos_array, $carrera->departamento_id, Departamento::find($carrera->departamento_id)->nombre);
-        } 
-
         return view('carreras.index')->with('carreras',$carreras);
     }
 

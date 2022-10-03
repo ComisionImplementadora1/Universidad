@@ -97,7 +97,8 @@ class materiasController extends Controller
      */
     public function show($id)
     {
-        //
+        $materia = materia::find($id);
+        return view('materias.show')->with('materia', $materia);
     }
 
     /**

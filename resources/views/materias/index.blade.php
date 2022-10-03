@@ -19,7 +19,7 @@
                 <td>{{$materia->codigo}}</td>
                 <td>{{$materia->nombre}}</td>
                 <td>
-                    <a class="btn btn-info" href="">Ver correlativas</a> 
+                    <a class="btn btn-info" href="materias/{{$materia->id}}">Ver correlativas</a> 
                     <button class="btn btn-danger">Borrar</button>
                 </td>
             </tr>
