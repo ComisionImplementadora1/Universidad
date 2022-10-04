@@ -54,7 +54,7 @@ class alumnosController extends Controller
         $alumno->dni = $request->get('dni');
         $alumno->fecha_de_nacimiento = $request->get('fecha_de_nacimiento');
         $alumno->mail = $request->get('mail');
-        $alumno->carrera = $request->get('carrera');
+        $alumno->id_carrera = $request->get('carrera');
 
         $alumno->save();
 
