@@ -39,7 +39,7 @@ class departamentosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'codigo'=> 'required|alpha|unique',
+            'codigo'=> 'required|alpha|unique:departamentos',
             'nombre'=> 'required'
         ]);
 

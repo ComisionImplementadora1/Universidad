@@ -42,7 +42,7 @@ class materiasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'codigo'=> 'required|unique',
+            'codigo'=> 'required|unique:materias',
             'nombre'=> 'required',
             'carrera'=> 'required'
         ]);
