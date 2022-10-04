@@ -48,13 +48,13 @@
     </div>
     <div class="mb-3">
         <h3>Correlativas debiles</h3>
-        <select name= "debiles_1" class="form-select mt-2 mb-2" aria-label="" value="{{ old('debiles_1') }}">
+        <select name= "debil_1" class="form-select mt-2 mb-2" aria-label="" value="{{ old('debiles_1') }}">
             <option selected value="">No tiene</option>
             @foreach ($correlativas as $correlativa)
                 <option value="{{$correlativa->id}}">{{$correlativa->nombre}}</option>
             @endforeach
         </select>
-        <select name= "debiles_2" class="form-select mt-2 mb-2" aria-label="" value="{{ old('debiles_2') }}">
+        <select name= "debil_2" class="form-select mt-2 mb-2" aria-label="" value="{{ old('debiles_2') }}">
             <option selected value="">No tiene</option>
             @foreach ($correlativas as $correlativa)
                 <option value="{{$correlativa->id}}">{{$correlativa->nombre}}</option>
