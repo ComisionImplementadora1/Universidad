@@ -55,7 +55,7 @@ class materiasController extends Controller
         $materia->save();
 
         $correlativa_fuerte = $request->get('fuerte_1');
-        if ($correlativa_fuerte != "No tiene"){
+        if ($correlativa_fuerte != ""){
            $correlativaNueva = new correlativas_fuertes();
            $correlativaNueva->id_materia_origen = $materia->id;
            $correlativaNueva->id_materia_correlativa = $correlativa_fuerte;
@@ -63,7 +63,7 @@ class materiasController extends Controller
         }
 
         $correlativa_fuerte = $request->get('fuerte_2');
-        if ($correlativa_fuerte != "No tiene"){
+        if ($correlativa_fuerte != ""){
            $correlativaNueva = new correlativas_fuertes();
            $correlativaNueva->id_materia_origen = $materia->id;
            $correlativaNueva->id_materia_correlativa = $correlativa_fuerte;
@@ -71,7 +71,7 @@ class materiasController extends Controller
         }
 
         $correlativa_debil = $request->get('debil_1');
-        if ($correlativa_debil != "No tiene"){
+        if ($correlativa_debil != ""){
            $correlativaNueva = new correlativas_debiles();
            $correlativaNueva->id_materia_origen = $materia->id;
            $correlativaNueva->id_materia_correlativa = $correlativa_debil;
@@ -79,7 +79,7 @@ class materiasController extends Controller
         }
 
         $correlativa_debil = $request->get('debil_2');
-        if ($correlativa_debil != "No tiene"){
+        if ($correlativa_debil != ""){
            $correlativaNueva = new correlativas_debiles();
            $correlativaNueva->id_materia_origen = $materia->id;
            $correlativaNueva->id_materia_correlativa = $correlativa_debil;
