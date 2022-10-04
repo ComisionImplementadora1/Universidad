@@ -41,7 +41,7 @@ class carrerasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'codigo'=> 'required|int|unique:carreras',
+            'codigo'=> 'required|unique:carreras',
             'nombre'=> 'required'
         ]);
 
