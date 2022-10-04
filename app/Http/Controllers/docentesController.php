@@ -42,7 +42,7 @@ class docentesController extends Controller
             'legajo' => 'required|integer|unique:docentes',
             'dni' => 'required|integer|unique:docentes',
             'fecha_de_nacimiento' => 'required|date',
-            'mail' => 'required|string'
+            'mail' => 'required|email'
         ]);
 
         $docente = new docente();

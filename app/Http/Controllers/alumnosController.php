@@ -43,7 +43,7 @@ class alumnosController extends Controller
             'lu' => 'required|integer|unique:alumnos',
             'dni' => 'required|integer|unique:docentes',
             'fecha_de_nacimiento' => 'required|date',
-            'mail' => 'required|string',
+            'mail' => 'required|email',
             'carrera' => 'required'
         ]);
 
