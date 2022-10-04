@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use App\Models\carrera;
 use App\Models\departamento;
+use App\Models\materia;
 
 class carrerasController extends Controller
 {
@@ -61,7 +63,9 @@ class carrerasController extends Controller
      */
     public function show($id)
     {
-        //
+        $carrera = carrera::find($id);
+        $materias = materia::where("id_carrera",$id)->get();
+        return view('carreras.show')->with('carrera',$carrera)->with('materias',$materias);
     }
 
     /**

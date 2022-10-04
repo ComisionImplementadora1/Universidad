@@ -19,7 +19,7 @@
                 <td>{{$carrera->codigo}}</td>
                 <td>{{$carrera->nombre}}</td>
                 <td>
-                    <a class="btn btn-info" href="">Ver Materias</a> 
+                    <a class="btn btn-info" href="carreras/{{$carrera->id}}">Ver Materias</a> 
                     <button class="btn btn-danger">Borrar</button>
                 </td>
             </tr>

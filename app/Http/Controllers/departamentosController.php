@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use App\Models\departamento;
+use App\Models\carrera;
 
 class departamentosController extends Controller
 {
@@ -59,9 +61,9 @@ class departamentosController extends Controller
      */
     public function show($id)
     {
-       /* $departamento = departamentos::find($id);
-        return view('departamentos.show')->with('departamento',$departamento);
-        */
+        $departamento = departamento::find($id);
+        $carreras = carrera::where("id_departamento",$id)->get();
+        return view('departamentos.show')->with('departamento',$departamento)->with('carreras',$carreras);
     }
 
     /**
