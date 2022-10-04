@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('contenido')
-<div class="card mx-auto" style="width: 40rem;">
+<div class="card mx-auto mt-8" style="width: 40rem;">
     <div class="card-body">
         <p class="card-title fs-2 text-center">{{$materia->nombre}}</p>
         <p class="card-subtitle fs-4 my-2">Codigo: {{$materia->codigo}}</p>
