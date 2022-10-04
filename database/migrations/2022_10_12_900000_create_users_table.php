@@ -19,8 +19,15 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->unsignedBigInteger('id_alumno')->nullable();
+            $table->unsignedBigInteger('id_docente')->nullable();
+            $table->unsignedBigInteger('id_admin')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('id_alumno')->references('id')->on('alumnos')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_docente')->references('id')->on('docentes')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_admin')->references('id')->on('administradores')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
