@@ -36,13 +36,13 @@
         <select name= "fuerte_1" class="form-select mt-2 mb-2" aria-label="" value="{{ old('fuerte_1') }}">
             <option selected value="">No tiene</option>
             @foreach ($correlativas as $correlativa)
-                <option value="{{$correlativa}}">{{$correlativa}}</option>
+                <option value="{{$correlativa->id}}">{{$correlativa->nombre}}</option>
             @endforeach
         </select>
         <select name= "fuerte_2" class="form-select mt-2 mb-2" aria-label="" value="{{ old('fuerte_2') }}">
             <option selected value="">No tiene</option>
             @foreach ($correlativas as $correlativa)
-                <option value="{{$correlativa}}">{{$correlativa}}</option>
+                <option value="{{$correlativa->id}}">{{$correlativa->nombre}}</option>
             @endforeach
         </select>
     </div>
@@ -51,13 +51,13 @@
         <select name= "debiles_1" class="form-select mt-2 mb-2" aria-label="" value="{{ old('debiles_1') }}">
             <option selected value="">No tiene</option>
             @foreach ($correlativas as $correlativa)
-                <option value="{{$correlativa}}">{{$correlativa}}</option>
+                <option value="{{$correlativa->id}}">{{$correlativa->nombre}}</option>
             @endforeach
         </select>
         <select name= "debiles_2" class="form-select mt-2 mb-2" aria-label="" value="{{ old('debiles_2') }}">
             <option selected value="">No tiene</option>
             @foreach ($correlativas as $correlativa)
-                <option value="{{$correlativa}}">{{$correlativa}}</option>
+                <option value="{{$correlativa->id}}">{{$correlativa->nombre}}</option>
             @endforeach
         </select>
     </div>

@@ -51,7 +51,7 @@ class materiasController extends Controller
 
         $materia->codigo = $request->get('codigo');
         $materia->nombre = $request->get('nombre');
-        $materia->carrera = $request->get('carrera');
+        $materia->id_carrera = $request->get('carrera');
         $materia->save();
 
         $correlativa_fuerte = $request->get('fuerte_1');
