@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="{{ secure_asset('https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap')}}">
 
         <!-- Scripts -->
-        @vite([secure_asset('resources/css/app.css'), secure_asset('resources/js/app.js')])
+        @vite([secure_asset('/resources/css/app.css'), secure_asset('/resources/js/app.js')])
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
