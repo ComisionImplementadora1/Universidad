@@ -11,7 +11,6 @@
     <title>Universidad</title>
   </head>
   <body>
-    
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <button
           class="navbar-toggler"
