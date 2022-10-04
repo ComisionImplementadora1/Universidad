@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\alumno;
+use App\Models\carrera;
 
 class alumnosController extends Controller
 {
@@ -13,7 +15,8 @@ class alumnosController extends Controller
      */
     public function index()
     {
-        //
+        $alumnos = alumno::paginate(20);
+        return view('alumnos.index')->with('alumnos',$alumnos);
     }
 
     /**
@@ -23,7 +26,8 @@ class alumnosController extends Controller
      */
     public function create()
     {
-        //
+        $carreras = carrera::all();
+        return view('alumnos.create')->with('carreras', $carreras);
     }
 
     /**
@@ -34,7 +38,27 @@ class alumnosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string',
+            'lu' => 'required|unique:alumnos',
+            'dni' => 'required|unique:docentes|integer',
+            'fecha_de_nacimiento' => 'required|date',
+            'mail' => 'required|string',
+            'carrera' => 'required'
+        ]);
+
+        $alumno = new alumno();
+
+        $alumno->nombre = $request->get('nombre');
+        $alumno->lu = $request->get('lu');
+        $alumno->dni = $request->get('dni');
+        $alumno->fecha_de_nacimiento = $request->get('fecha_de_nacimiento');
+        $alumno->mail = $request->get('mail');
+        $alumno->carrera = $request->get('carrera');
+
+        $alumno->save();
+
+        return redirect('/alumnos');
     }
 
     /**
