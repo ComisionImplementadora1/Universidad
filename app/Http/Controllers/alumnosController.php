@@ -40,8 +40,8 @@ class alumnosController extends Controller
     {
         $request->validate([
             'nombre' => 'required|string',
-            'lu' => 'required|unique:alumnos|integer',
-            'dni' => 'required|unique:docentes|integer',
+            'lu' => 'required|integer|unique:alumnos',
+            'dni' => 'required|integer|unique:docentes',
             'fecha_de_nacimiento' => 'required|date',
             'mail' => 'required|string',
             'carrera' => 'required'
