@@ -39,9 +39,9 @@ class alumnosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required|string',
-            'lu' => 'required|integer|unique:alumnos',
-            'dni' => 'required|integer|unique:docentes',
+            'nombre' => 'required|alpha',
+            'lu' => 'required|integer|min:0|unique:alumnos',
+            'dni' => 'required|integer|min:0||unique:docentes',
             'fecha_de_nacimiento' => 'required|date',
             'mail' => 'required|email',
             'carrera' => 'required'

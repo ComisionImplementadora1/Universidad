@@ -38,9 +38,9 @@ class docentesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required|string',
-            'legajo' => 'required|integer|unique:docentes',
-            'dni' => 'required|integer|unique:docentes',
+            'nombre' => 'required|alpha',
+            'legajo' => 'required|integer|min:0|unique:docentes',
+            'dni' => 'required|integer|min:0|unique:docentes',
             'fecha_de_nacimiento' => 'required|date',
             'mail' => 'required|email'
         ]);

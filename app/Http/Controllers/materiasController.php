@@ -42,8 +42,8 @@ class materiasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'codigo'=> 'required|unique:materias',
-            'nombre'=> 'required',
+            'codigo'=> 'required|integer|min:0|unique:materias',
+            'nombre'=> 'required|alpha',
             'carrera'=> 'required'
         ]);
 

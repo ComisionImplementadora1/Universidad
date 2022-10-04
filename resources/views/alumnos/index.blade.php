@@ -19,7 +19,7 @@
     <tbody class="text-center">
         @foreach ($alumnos as $alumno)
             <tr>
-                <td>{{$alumno->dni}}</td>
+                <td>{{$alumno->nombre}}</td>
                 <td>{{$alumno->lu}}</td>
                 <td>{{$alumno->dni}}</td>
                 <td>{{$alumno->fecha_de_nacimiento}}</td>
