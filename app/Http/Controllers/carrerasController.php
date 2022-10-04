@@ -49,6 +49,7 @@ class carrerasController extends Controller
 
         $carrera->codigo = $request->get('codigo');
         $carrera->nombre = $request->get('nombre');
+        $carrera->id_departamento = $request->get('departamento');
 
         $carrera->save();
 
