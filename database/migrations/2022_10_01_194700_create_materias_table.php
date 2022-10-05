@@ -17,10 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('codigo');
             $table->string('nombre');
-
-            $table->unsignedBigInteger('id_carrera');
-
-            $table->foreign('id_carrera')->references('id')->on('carreras')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

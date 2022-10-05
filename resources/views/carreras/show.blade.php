@@ -8,7 +8,7 @@
 
         <p class="card-subtitle fs-5 my-2">Materias:</p>
         <ul>
-            @foreach ($materias as $materia)
+            @foreach ($carrera->materias as $materia)
                 <li>{{$materia->codigo}} - {{$materia->nombre}}</li>
             @endforeach
         </ul>

@@ -65,8 +65,7 @@ class carrerasController extends Controller
     public function show($id)
     {
         $carrera = carrera::find($id);
-        $materias = materia::where("id_carrera",$id)->get();
-        return view('carreras.show')->with('carrera',$carrera)->with('materias',$materias);
+        return view('carreras.show')->with('carrera',$carrera);
     }
 
     /**
