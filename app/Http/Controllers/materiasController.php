@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\materia;
 use App\Models\carrera;
+use App\Models\materias_de_carrera;
 use App\Models\correlativas_debiles;
 use App\Models\correlativas_fuertes;
 
@@ -51,8 +52,28 @@ class materiasController extends Controller
 
         $materia->codigo = $request->get('codigo');
         $materia->nombre = $request->get('nombre');
-        $materia->id_carrera = $request->get('carrera');
         $materia->save();
+
+        $materias_de_carrera = new materias_de_carrera();
+        $materias_de_carrera->id_carrera = $request->get('carrera');
+        $materias_de_carrera->id_materia = $materia->id;
+        $materias_de_carrera->save();
+
+        $carrera2 = $request->get('carrera2');
+        if ($carrera2!= ""){
+            $materias_de_carrera = new materias_de_carrera();
+            $materias_de_carrera->id_carrera = $carrera2;
+            $materias_de_carrera->id_materia = $materia->id;
+            $materias_de_carrera->save();
+        }
+
+        $carrera3 = $request->get('carrera3');
+        if ($carrera3!= ""){
+            $materias_de_carrera = new materias_de_carrera();
+            $materias_de_carrera->id_carrera = $carrera3;
+            $materias_de_carrera->id_materia = $materia->id;
+            $materias_de_carrera->save();
+        }
 
         $correlativa_fuerte = $request->get('fuerte_1');
         if ($correlativa_fuerte != ""){

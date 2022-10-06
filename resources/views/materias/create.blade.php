@@ -24,8 +24,20 @@
         <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre') }}">
     </div>
     <div class="mb-3">
-        <label for="" class="form-label fs-3">Carrera</label>
+        <label for="" class="form-label fs-3">Carrera/s</label>
         <select name="carrera" class="form-select mt-2 mb-2" aria-label="" value="{{ old('carrera') }}">
+            @foreach ($carreras as $carrera)
+                <option value="{{$carrera->id}}">{{$carrera->nombre}}</option>
+            @endforeach
+        </select>
+        <select name="carrera2" class="form-select mt-2 mb-2" aria-label="" value="{{ old('carrera2') }}">
+            <option value=""></option>
+            @foreach ($carreras as $carrera)
+                <option value="{{$carrera->id}}">{{$carrera->nombre}}</option>
+            @endforeach
+        </select>
+        <select name="carrera3" class="form-select mt-2 mb-2" aria-label="" value="{{ old('carrera3') }}">
+            <option value=""></option>
             @foreach ($carreras as $carrera)
                 <option value="{{$carrera->id}}">{{$carrera->nombre}}</option>
             @endforeach
