@@ -8,6 +8,7 @@
 <table class="table table-secondary text-center mt-5">
     <thead>
         <tr>
+            <th scope="col">Nombre</th>
             <th scope="col">Legajo</th>
             <th scope="col">DNI</th>
             <th scope="col">Fecha de nacimiento</th>
@@ -18,6 +19,7 @@
     <tbody class="text-center">
         @foreach ($docentes as $docente)
             <tr>
+                <td>{{$docente->nombre}}</td>
                 <td>{{$docente->legajo}}</td>
                 <td>{{$docente->dni}}</td>
                 <td>{{$docente->fecha_de_nacimiento}}</td>
