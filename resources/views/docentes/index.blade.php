@@ -23,7 +23,6 @@
                 <td>{{$docente->fecha_de_nacimiento}}</td>
                 <td>{{$docente->mail}}</td>
                 <td>
-                    <button class="btn btn-danger">Borrar</button>
                 </td>
             </tr>
         @endforeach

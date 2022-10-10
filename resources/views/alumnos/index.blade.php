@@ -26,7 +26,6 @@
                 <td>{{$alumno->mail}}</td>
                 <td>
                     <button class="btn btn-warning">Inscripciones</button>
-                    <button class="btn btn-danger">Borrar</button>
                 </td>
             </tr>
         @endforeach

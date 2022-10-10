@@ -20,7 +20,6 @@
                 <td>{{$departamento->nombre}}</td>
                 <td>
                     <a class="btn btn-info" href="departamentos/{{$departamento->id}}">Ver carreras</a> 
-                    <button class="btn btn-danger">Borrar</button>
                 </td>
             </tr>
         @endforeach
