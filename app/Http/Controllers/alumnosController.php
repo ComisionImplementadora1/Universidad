@@ -39,12 +39,13 @@ class alumnosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required|alpha',
+            'nombre' => 'required|regex:/^[\pL\s]+$/u|min:3',
             'lu' => 'required|integer|min:0|unique:alumnos',
             'dni' => 'required|integer|min:0||unique:docentes',
             'fecha_de_nacimiento' => 'required|date',
             'mail' => 'required|email',
-            'carrera' => 'required'
+            'carrera' => 'required',
+            'password' => 'required|confirmed',
         ]);
 
         $alumno = new alumno();
@@ -55,6 +56,7 @@ class alumnosController extends Controller
         $alumno->fecha_de_nacimiento = $request->get('fecha_de_nacimiento');
         $alumno->mail = $request->get('mail');
         $alumno->id_carrera = $request->get('carrera');
+        $alumno->password = bcrypt($request->get('password'));
 
         $alumno->save();
 
