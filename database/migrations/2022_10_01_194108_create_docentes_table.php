@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedInteger('dni');
             $table->date('fecha_de_nacimiento');
             $table->string('mail')->unique();
+            $table->string('password');
             $table->timestamps();
         });
     }

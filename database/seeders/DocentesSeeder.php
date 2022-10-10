@@ -21,6 +21,7 @@ class DocentesSeeder extends Seeder
             'dni' => '21234654',
             'fecha_de_nacimiento' => '1972-10-012',
             'mail' => 'ana.falcon@gmail.com',
+            'password' => bcrypt('123'),
         ]);
 
         DB::table('docentes')->insert([
@@ -29,6 +30,7 @@ class DocentesSeeder extends Seeder
             'dni' => '18434564',
             'fecha_de_nacimiento' => '1972-11-02',
             'mail' => 'juana.perez@gmail.com',
+            'password' => bcrypt('123'),
         ]);
 
         DB::table('docentes')->insert([
@@ -37,6 +39,7 @@ class DocentesSeeder extends Seeder
             'dni' => '23098007',
             'fecha_de_nacimiento' => '1980-12-01',
             'mail' => 'serg.corpaz@gmail.com',
+            'password' => bcrypt('123'),
         ]);
 
         DB::table('docentes')->insert([
@@ -45,6 +48,7 @@ class DocentesSeeder extends Seeder
             'dni' => '19456478',
             'fecha_de_nacimiento' => '1982-10-06',
             'mail' => 'maxi.montesinos@gmail.com',
+            'password' => bcrypt('123'),
         ]);
 
         DB::table('docentes')->insert([
@@ -53,6 +57,7 @@ class DocentesSeeder extends Seeder
             'dni' => '18566432',
             'fecha_de_nacimiento' => '1972-06-06',
             'mail' => 'gabriel.fer@gmail.com',
+            'password' => bcrypt('123'),
         ]);
 
         DB::table('docentes')->insert([
@@ -61,6 +66,7 @@ class DocentesSeeder extends Seeder
             'dni' => '29432123',
             'fecha_de_nacimiento' =>'1972-08-01',
             'mail' => 'joaquin.n@gmail.com',
+            'password' => bcrypt('123'),
         ]);
 
         DB::table('docentes')->insert([
@@ -69,6 +75,7 @@ class DocentesSeeder extends Seeder
             'dni' => '22455567',
             'fecha_de_nacimiento' =>'1972-05-02',
             'mail' => 'diana.chavez@gmail.com',
+            'password' => bcrypt('123'),
         ]);
 
         DB::table('docentes')->insert([
@@ -77,6 +84,7 @@ class DocentesSeeder extends Seeder
             'dni' => '23459753',
             'fecha_de_nacimiento' =>'1972-06-01',
             'mail' => 'nico.pontet@gmail.com',
+            'password' => bcrypt('123'),
         ]);
 
         DB::table('docentes')->insert([
@@ -85,6 +93,7 @@ class DocentesSeeder extends Seeder
             'dni' => '20765432',
             'fecha_de_nacimiento' => '1972-03-03',
             'mail' => 'cris.ang@gmail.com',
+            'password' => bcrypt('123'),
         ]);
 
         DB::table('docentes')->insert([
@@ -93,6 +102,7 @@ class DocentesSeeder extends Seeder
             'dni' => '21874764',
             'fecha_de_nacimiento' => '1972-05-04',
             'mail' => 'laura.qrz@gmail.com',
+            'password' => bcrypt('123'),
         ]);
 
    }

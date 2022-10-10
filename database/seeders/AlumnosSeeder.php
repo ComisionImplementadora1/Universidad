@@ -22,7 +22,7 @@ class AlumnosSeeder extends Seeder
             'fecha_de_nacimiento' => '2001-09-20',
             'mail' => 'her_ind@outlook.com',
             'id_carrera' => '3',
-            'password' => '123'
+            'password' => bcrypt('123'),
             ]);
 
         DB::table('alumnos')->insert([
@@ -32,7 +32,7 @@ class AlumnosSeeder extends Seeder
             'fecha_de_nacimiento' => '2001-08-02',
             'mail' => 'ori.diaz@gmail.cm',
             'id_carrera' => '1',
-            'password' => '123'
+            'password' => bcrypt('123'),
          ]);
 
          DB::table('alumnos')->insert([
@@ -42,7 +42,7 @@ class AlumnosSeeder extends Seeder
             'fecha_de_nacimiento' => '2001-10-01',
             'mail' => 'peterperez@live.com',
             'id_carrera' => '3',
-            'password' => '123'
+            'password' => bcrypt('123'),
          ]);
 
          DB::table('alumnos')->insert([
@@ -52,7 +52,7 @@ class AlumnosSeeder extends Seeder
             'fecha_de_nacimiento' => '2001-05-06',
             'mail' => 'iraozdk@gmail.com',
             'id_carrera' => '2',
-            'password' => '123'
+            'password' => bcrypt('123'),
          ]);
 
          DB::table('alumnos')->insert([
@@ -62,7 +62,7 @@ class AlumnosSeeder extends Seeder
             'fecha_de_nacimiento' => '2000-02-01',
             'mail' => 'mercadoluciana@gmial.com',
             'id_carrera' => '2',
-            'password' => '123'
+            'password' => bcrypt('123'),
          ]);
 
          DB::table('alumnos')->insert([
@@ -72,7 +72,7 @@ class AlumnosSeeder extends Seeder
             'fecha_de_nacimiento' => '2000-06-01',
             'mail' => 'uri_pz@gmail.com',
             'id_carrera' => '1',
-            'password' => '123'
+            'password' => bcrypt('123'),
          ]);
     }
 }

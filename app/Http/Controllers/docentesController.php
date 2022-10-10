@@ -38,11 +38,12 @@ class docentesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required|alpha',
+            'nombre' => 'required|regex:/^[\pL\s]+$/u|min:3',
             'legajo' => 'required|integer|min:0|unique:docentes',
             'dni' => 'required|integer|min:0|unique:docentes',
             'fecha_de_nacimiento' => 'required|date',
-            'mail' => 'required|email'
+            'mail' => 'required|email',
+            'password' => 'required|confirmed',
         ]);
 
         $docente = new docente();
@@ -52,6 +53,7 @@ class docentesController extends Controller
         $docente->dni = $request->get('dni');
         $docente->fecha_de_nacimiento = $request->get('fecha_de_nacimiento');
         $docente->mail = $request->get('mail');
+        $docente->password = bcrypt($request->get('password'));
 
         $docente->save();
 
