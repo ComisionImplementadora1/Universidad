@@ -42,15 +42,35 @@ class materiasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'codigo'=> 'required|alpha|min:0|unique:materias',
+            'codigo'=> 'required|alpha_num|min:0|unique:materias',
             'nombre'=> 'required|regex:/^[\pL\s]+$/u|min:3',
+            'fuertes.*' => 'sometimes|alpha_num|distinct|exists:materias,codigo',
+            'debiles.*' => 'sometimes|alpha_num|distinct|exists:materias,codigo'
         ]);
 
         $materia = new materia();
 
         $materia->codigo = $request->get('codigo');
         $materia->nombre = $request->get('nombre');
-        $materia->save();        
+        $materia->save();      
+        
+        $fuertes = $request->input('fuertes');
+        foreach ((array) $fuertes as $fuerte){
+            $fuerteNueva = new correlativas_fuertes();
+            $fuerteNueva->id_materia_origen = $materia->id;
+            $correlativa = materia::where('codigo',$fuerte)->first();
+            $fuerteNueva->id_materia_correlativa = $correlativa->id;
+            $fuerteNueva->save();
+        }
+
+        $debiles = $request->input('debiles');
+        foreach ((array) $debiles as $debil){
+            $debilNueva = new correlativas_debiles();
+            $debilNueva->id_materia_origen = $materia->id;
+            $correlativa = materia::where('codigo',$debil)->first();
+            $debilNueva->id_materia_correlativa = $correlativa->id;
+            $debilNueva->save();
+        }
 
         return redirect('/materias');
     }
