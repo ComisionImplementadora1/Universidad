@@ -30,8 +30,7 @@ class materiasController extends Controller
     public function create()
     {
         $materias = materia::all();
-        $carreras = carrera::all();
-        return view('materias.create')->with('correlativas', $materias)->with('carreras', $carreras);
+        return view('materias.create')->with('correlativas', $materias);
     }
 
     /**
