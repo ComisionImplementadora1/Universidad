@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(DepartamentosSeeder::class);
         $this->call(CarrerasSeeder::class);
+        $this->call(CarrerasDeDEpartamentosSeeder::class);
         $this->call(MateriasSeeder::class);
         $this->call(MateriasDeCarrerasSeeder::class);
         $this->call(CorrelativasFuertesSeeder::class);

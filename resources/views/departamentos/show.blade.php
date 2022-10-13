@@ -8,7 +8,7 @@
 
         <p class="card-subtitle fs-5 my-2">Carreras:</p>
         <ul>
-            @foreach ($carreras as $carrera)
+            @foreach ($departamento->carreras as $carrera)
                 <li>{{$carrera->codigo}} - {{$carrera->nombre}}</li>
             @endforeach
         </ul>

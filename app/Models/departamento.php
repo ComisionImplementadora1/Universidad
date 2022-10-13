@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class departamento extends Model
 {
     use HasFactory;
+
+    public function carreras(){
+        return $this->belongsToMany(carrera::class, 'carreras_de_departamentos', 'id_departamento', 'id_carrera');
+    }
 }

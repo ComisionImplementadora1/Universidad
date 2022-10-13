@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use App\Models\departamento;
 use App\Models\carrera;
+use App\Models\carreras_de_departamento;
 
 class departamentosController extends Controller
 {
@@ -40,7 +41,8 @@ class departamentosController extends Controller
     {
         $request->validate([
             'codigo'=> 'required|alpha|unique:departamentos',
-            'nombre'=> 'required'
+            'nombre'=> 'required',
+            'carreras.*' => 'sometimes|alpha_num|distinct|exists:carreras,codigo',
         ]);
 
         $departamento = new departamento();
@@ -49,6 +51,15 @@ class departamentosController extends Controller
         $departamento->nombre = $request->get('nombre');
 
         $departamento->save();
+
+        $carreras = (array) $request->input('carreras');
+        foreach ($carreras as $carrera){
+            $carreraNueva = new carreras_de_departamento();
+            $carreraNueva->id_departamento = $departamento->id;
+            $carr = carrera::where('codigo',$carrera)->first();
+            $carreraNueva->id_carrera = $carr->id;
+            $carreraNueva->save();
+        }
 
         return redirect('/departamentos');
     }
@@ -62,8 +73,7 @@ class departamentosController extends Controller
     public function show($id)
     {
         $departamento = departamento::find($id);
-        $carreras = carrera::where("id_departamento",$id)->get();
-        return view('departamentos.show')->with('departamento',$departamento)->with('carreras',$carreras);
+        return view('departamentos.show')->with('departamento',$departamento);
     }
 
     /**
