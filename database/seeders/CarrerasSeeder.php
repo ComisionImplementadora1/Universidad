@@ -18,19 +18,16 @@ class CarrerasSeeder extends Seeder
         DB::table('carreras')->insert([
             'codigo'=>'LCC',
             'nombre'=> 'Licenciatura en Ciencias de la Computación',
-            'id_departamento' => '1',
         ]);
 
         DB::table('carreras')->insert([
             'codigo'=>'ISI',
             'nombre'=> 'Ingeniería en Sistemas de Información',
-            'id_departamento' => '1',
         ]);
 
         DB::table('carreras')->insert([
             'codigo'=>'IC',
             'nombre'=> 'Ingeniería en Computación',
-            'id_departamento' => '1',
         ]);
     }
 }

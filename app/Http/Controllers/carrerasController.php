@@ -7,6 +7,7 @@ use Illuminate\Support\Arr;
 use App\Models\carrera;
 use App\Models\departamento;
 use App\Models\materia;
+use App\Models\materias_de_carrera;
 
 class carrerasController extends Controller
 {
@@ -42,16 +43,24 @@ class carrerasController extends Controller
     {
         $request->validate([
             'codigo'=> 'required|unique:carreras',
-            'nombre'=> 'required'
+            'nombre'=> 'required',
+            'materias.*' => 'sometimes|alpha_num|distinct|exists:materias,codigo',
         ]);
 
         $carrera = new carrera();
 
         $carrera->codigo = $request->get('codigo');
         $carrera->nombre = $request->get('nombre');
-        $carrera->id_departamento = $request->get('departamento');
-
         $carrera->save();
+
+        $materias = (array) $request->input('materias');
+        foreach ($materias as $materia){
+            $materiaNueva = new materias_de_carrera();
+            $materiaNueva->id_carrera = $carrera->id;
+            $mat = materia::where('codigo',$materia)->first();
+            $materiaNueva->id_materia = $mat->id;
+            $materiaNueva->save();
+        }
 
         return redirect('/carreras');
     }
