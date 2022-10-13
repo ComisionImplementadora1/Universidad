@@ -8,6 +8,7 @@ use App\Models\carrera;
 use App\Models\materias_de_carrera;
 use App\Models\correlativas_debiles;
 use App\Models\correlativas_fuertes;
+use App\Rules\CorrelativasRule;
 
 class materiasController extends Controller
 {
@@ -41,11 +42,14 @@ class materiasController extends Controller
      */
     public function store(Request $request)
     {
+        $fuertes = $request->input('fuertes');
         $request->validate([
             'codigo'=> 'required|alpha_num|min:0|unique:materias',
             'nombre'=> 'required|regex:/^[\pL\s]+$/u|min:3',
             'fuertes.*' => 'sometimes|alpha_num|distinct|exists:materias,codigo',
-            'debiles.*' => 'sometimes|alpha_num|distinct|exists:materias,codigo'
+            'debiles.*' => [
+                'sometimes','alpha_num','distinct','exists:materias,codigo', 
+                new CorrelativasRule($fuertes)]
         ]);
 
         $materia = new materia();
@@ -54,7 +58,6 @@ class materiasController extends Controller
         $materia->nombre = $request->get('nombre');
         $materia->save();      
         
-        $fuertes = $request->input('fuertes');
         foreach ((array) $fuertes as $fuerte){
             $fuerteNueva = new correlativas_fuertes();
             $fuerteNueva->id_materia_origen = $materia->id;
@@ -65,9 +68,6 @@ class materiasController extends Controller
 
         $debiles = $request->input('debiles');
         foreach ((array) $debiles as $debil){
-            if (in_array($debil, $fuertes)){
-                return redirect()->back()->withErrors("Correlativa fuerte y debil coincide");   
-            }
             $debilNueva = new correlativas_debiles();
             $debilNueva->id_materia_origen = $materia->id;
             $correlativa = materia::where('codigo',$debil)->first();
