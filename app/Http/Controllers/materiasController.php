@@ -65,6 +65,9 @@ class materiasController extends Controller
 
         $debiles = $request->input('debiles');
         foreach ((array) $debiles as $debil){
+            if (in_array($debil, $fuertes)){
+                return redirect()->back()->withErrors("Correlativa fuerte y debil coincide");   
+            }
             $debilNueva = new correlativas_debiles();
             $debilNueva->id_materia_origen = $materia->id;
             $correlativa = materia::where('codigo',$debil)->first();

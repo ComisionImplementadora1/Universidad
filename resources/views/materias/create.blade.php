@@ -17,7 +17,7 @@
     @csrf
     <div class="mb-3">
         <label for="" class="form-label fs-3">Codigo</label>
-        <input type="text" class="form-control" id="codigo" name="codigo" value="{{ old('name') }}">
+        <input type="text" class="form-control" id="codigo" name="codigo" value="{{ old('codigo') }}">
     </div>
     <div class="mb-3">
         <label for="" class="form-label fs-3">Nombre</label>
