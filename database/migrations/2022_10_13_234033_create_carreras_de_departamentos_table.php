@@ -18,6 +18,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('id_departamento');
             $table->unsignedBigInteger('id_carrera');
+            $table->string('cod_carrera');
             
             $table->foreign('id_departamento')->references('id')->on('departamentos')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('id_carrera')->references('id')->on('carreras')->onUpdate('cascade')->onDelete('cascade');

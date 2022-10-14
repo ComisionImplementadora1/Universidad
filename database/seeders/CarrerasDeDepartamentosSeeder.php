@@ -17,17 +17,20 @@ class CarrerasDeDepartamentosSeeder extends Seeder
     {
         DB::table('carreras_de_departamentos')->insert([
             'id_departamento'=>'1',
-            'id_carrera'=>'1'
+            'id_carrera'=>'1',
+            'cod_carrera'=>'LCC'
         ]);
 
         DB::table('carreras_de_departamentos')->insert([
             'id_departamento'=>'1',
-            'id_carrera'=>'2'
+            'id_carrera'=>'2',
+            'cod_carrera'=>'ISI'
         ]);
 
         DB::table('carreras_de_departamentos')->insert([
             'id_departamento'=>'1',
-            'id_carrera'=>'3'
+            'id_carrera'=>'3',
+            'cod_carrera'=>'IC'
         ]);
     }
 }

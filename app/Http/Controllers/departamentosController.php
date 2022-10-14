@@ -42,7 +42,7 @@ class departamentosController extends Controller
         $request->validate([
             'codigo'=> 'required|alpha|unique:departamentos',
             'nombre'=> 'required',
-            'carreras.*' => 'sometimes|alpha_num|distinct|exists:carreras,codigo',
+            'carreras.*' => 'sometimes|alpha_num|distinct|exists:carreras,codigo|unique:carreras_de_departamentos,cod_carrera',
         ]);
 
         $departamento = new departamento();
@@ -58,6 +58,7 @@ class departamentosController extends Controller
             $carreraNueva->id_departamento = $departamento->id;
             $carr = carrera::where('codigo',$carrera)->first();
             $carreraNueva->id_carrera = $carr->id;
+            $carreraNueva->cod_carrera = $carr->codigo;
             $carreraNueva->save();
         }
 
