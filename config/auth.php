@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'alumno' => [
+            'driver' => 'session',
+            'provider' => 'alumnos',
+        ],
     ],
 
     /*
@@ -69,6 +73,10 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        'alumnos' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Alumno::class,
+        ],
     ],
 
     /*
@@ -89,6 +97,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'alumnos' => [
+            'provider' => 'alumnos',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
