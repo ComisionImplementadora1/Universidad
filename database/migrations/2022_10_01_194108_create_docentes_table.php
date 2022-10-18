@@ -19,8 +19,9 @@ return new class extends Migration
             $table->unsignedInteger('legajo');
             $table->unsignedInteger('dni');
             $table->date('fecha_de_nacimiento');
-            $table->string('mail')->unique();
+            $table->string('email')->unique();
             $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

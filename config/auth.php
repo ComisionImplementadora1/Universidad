@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'alumnos',
         ],
+        'docente' => [
+            'driver' => 'session',
+            'provider' => 'docentes',
+        ],
     ],
 
     /*
@@ -77,6 +81,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Alumno::class,
         ],
+        'docentes' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Docente::class,
+        ],
     ],
 
     /*
@@ -103,6 +111,12 @@ return [
         ],
         'alumnos' => [
             'provider' => 'alumnos',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'docentes' => [
+            'provider' => 'docentes',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

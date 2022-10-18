@@ -20,7 +20,7 @@ class DocentesSeeder extends Seeder
             'legajo' => '88789',
             'dni' => '21234654',
             'fecha_de_nacimiento' => '1972-10-012',
-            'mail' => 'ana.falcon@gmail.com',
+            'email' => 'ana.falcon@gmail.com',
             'password' => bcrypt('123'),
         ]);
 
@@ -29,7 +29,7 @@ class DocentesSeeder extends Seeder
             'legajo' => '88778',
             'dni' => '18434564',
             'fecha_de_nacimiento' => '1972-11-02',
-            'mail' => 'juana.perez@gmail.com',
+            'email' => 'juana.perez@gmail.com',
             'password' => bcrypt('123'),
         ]);
 
@@ -38,7 +38,7 @@ class DocentesSeeder extends Seeder
             'legajo' => '99782',
             'dni' => '23098007',
             'fecha_de_nacimiento' => '1980-12-01',
-            'mail' => 'serg.corpaz@gmail.com',
+            'email' => 'serg.corpaz@gmail.com',
             'password' => bcrypt('123'),
         ]);
 
@@ -47,7 +47,7 @@ class DocentesSeeder extends Seeder
             'legajo' => '25924',
             'dni' => '19456478',
             'fecha_de_nacimiento' => '1982-10-06',
-            'mail' => 'maxi.montesinos@gmail.com',
+            'email' => 'maxi.montesinos@gmail.com',
             'password' => bcrypt('123'),
         ]);
 
@@ -56,7 +56,7 @@ class DocentesSeeder extends Seeder
             'legajo' => '66589',
             'dni' => '18566432',
             'fecha_de_nacimiento' => '1972-06-06',
-            'mail' => 'gabriel.fer@gmail.com',
+            'email' => 'gabriel.fer@gmail.com',
             'password' => bcrypt('123'),
         ]);
 
@@ -65,7 +65,7 @@ class DocentesSeeder extends Seeder
             'legajo' => '89724',
             'dni' => '29432123',
             'fecha_de_nacimiento' =>'1972-08-01',
-            'mail' => 'joaquin.n@gmail.com',
+            'email' => 'joaquin.n@gmail.com',
             'password' => bcrypt('123'),
         ]);
 
@@ -74,7 +74,7 @@ class DocentesSeeder extends Seeder
             'legajo' => '77891',
             'dni' => '22455567',
             'fecha_de_nacimiento' =>'1972-05-02',
-            'mail' => 'diana.chavez@gmail.com',
+            'email' => 'diana.chavez@gmail.com',
             'password' => bcrypt('123'),
         ]);
 
@@ -83,7 +83,7 @@ class DocentesSeeder extends Seeder
             'legajo' => '77310',
             'dni' => '23459753',
             'fecha_de_nacimiento' =>'1972-06-01',
-            'mail' => 'nico.pontet@gmail.com',
+            'email' => 'nico.pontet@gmail.com',
             'password' => bcrypt('123'),
         ]);
 
@@ -92,7 +92,7 @@ class DocentesSeeder extends Seeder
             'legajo' => '44710',
             'dni' => '20765432',
             'fecha_de_nacimiento' => '1972-03-03',
-            'mail' => 'cris.ang@gmail.com',
+            'email' => 'cris.ang@gmail.com',
             'password' => bcrypt('123'),
         ]);
 
@@ -101,7 +101,7 @@ class DocentesSeeder extends Seeder
             'legajo' => '33471',
             'dni' => '21874764',
             'fecha_de_nacimiento' => '1972-05-04',
-            'mail' => 'laura.qrz@gmail.com',
+            'email' => 'laura.qrz@gmail.com',
             'password' => bcrypt('123'),
         ]);
 
