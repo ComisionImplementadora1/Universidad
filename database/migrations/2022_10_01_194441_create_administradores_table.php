@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('nombre');
             $table->unsignedInteger('legajo');
             $table->unsignedInteger('dni');
-            $table->string('mail');
+            $table->string('email');
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CorrelativasFuertesSeeder::class);
         $this->call(AlumnosSeeder::class);
         $this->call(DocentesSeeder::class);
+        $this->call(AdministradoresSeeder::class);
     }
 }

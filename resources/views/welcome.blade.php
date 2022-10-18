@@ -26,8 +26,6 @@
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
                     @endauth
                 </div>
             @endif
@@ -36,6 +34,14 @@
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
                     <img src="/logo3.png" alt="logo" id="logo" style="width: 600px;">
                 </div>
+                @auth
+                @else
+                    <div class="flex justify-center">
+                        <a href="{{ route('administrador.login') }}" class="px-4 text-white-700">Administrador</a>
+                        <a href="{{ route('docente.login') }}" class="px-4 text-white-700">Docente</a>
+                        <a href="{{ route('alumno.login') }}" class="px-4 text-white-700">Alumno</a>
+                    </div>
+                @endauth
             </div>
         </div>
     </body>

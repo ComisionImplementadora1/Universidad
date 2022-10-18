@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class administradoresSeeder extends Seeder
 {
@@ -16,22 +17,18 @@ class administradoresSeeder extends Seeder
     {
         DB::table('administradores')->insert([
             'nombre'=>'Pedro Ramirez',
-            'Legajo' => '87592',
-            'DNI' => '18555369',
-            'FechaNacimiento' => '1972-03-20',
-            'Mail' => 'admin1@gmail.com',
-            'Usuario' => 'admin1',
-            'Contraseña' => 'admin12'
+            'legajo' => '87592',
+            'dni' => '18555369',
+            'email' => 'admin1@gmail.com',
+            'password' => bcrypt('admin12')
             ]);
 
         DB::table('administradores')->insert([
             'nombre'=>'Susana Gutierrez',
-            'Legajo' => '58921',
-            'DNI' => '20005897',
-            'FechaNacimiento' => '1982-09-01',
-            'Mail' => 'admin2@gmail.com',
-            'Usuario' => 'admin2',
-            'Contraseña' => 'admin22'
+            'legajo' => '58921',
+            'dni' => '20005897',
+            'email' => 'admin2@gmail.com',
+            'password' => bcrypt('admin22')
             ]);
     }
 }

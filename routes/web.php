@@ -28,4 +28,4 @@ Route::resource('alumnos', 'App\Http\Controllers\alumnosController')->middleware
 Route::resource('docentes', 'App\Http\Controllers\docentesController')->middleware(['auth']);
 
 require __DIR__.'/auth.php';
-require __DIR__.'/alumno.php';require __DIR__.'/docente.php';
+require __DIR__.'/alumno.php';require __DIR__.'/docente.php';require __DIR__.'/administrador.php';
