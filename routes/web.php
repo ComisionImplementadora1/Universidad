@@ -21,11 +21,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('materias', 'App\Http\Controllers\materiasController')->middleware(['auth']);
-Route::resource('carreras', 'App\Http\Controllers\carrerasController')->middleware(['auth']);
-Route::resource('departamentos', 'App\Http\Controllers\departamentosController')->middleware(['auth']);
-Route::resource('alumnos', 'App\Http\Controllers\alumnosController')->middleware(['auth']);
-Route::resource('docentes', 'App\Http\Controllers\docentesController')->middleware(['auth']);
+Route::resource('materias', 'App\Http\Controllers\materiasController')->middleware(['auth:administrador']);
+Route::resource('carreras', 'App\Http\Controllers\carrerasController')->middleware(['auth:administrador']);
+Route::resource('departamentos', 'App\Http\Controllers\departamentosController')->middleware(['auth:administrador']);
+Route::resource('alumnos', 'App\Http\Controllers\alumnosController')->middleware(['auth:administrador']);
+Route::resource('docentes', 'App\Http\Controllers\docentesController')->middleware(['auth:administrador']);
 
 require __DIR__.'/auth.php';
 require __DIR__.'/alumno.php';require __DIR__.'/docente.php';require __DIR__.'/administrador.php';
