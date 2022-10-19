@@ -21,9 +21,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
  
-Route::resource('materias', 'App\Http\Controllers\materiasController')->middleware(['auth:administrador', 'auth:alumno']);
-Route::resource('carreras', 'App\Http\Controllers\carrerasController')->middleware(['auth:administrador', 'auth:alumno']);
-Route::resource('departamentos', 'App\Http\Controllers\departamentosController')->middleware(['auth:administrador', 'auth:alumno']);
+Route::resource('materias', 'App\Http\Controllers\materiasController')->middleware(['auth:administrador', 'auth:alumno', 'auth:docente']);
+Route::resource('carreras', 'App\Http\Controllers\carrerasController')->middleware(['auth:administrador', 'auth:alumno', 'auth:docente']);
+Route::resource('departamentos', 'App\Http\Controllers\departamentosController')->middleware(['auth:administrador', 'auth:alumno', 'auth:docente']);
 Route::resource('alumnos', 'App\Http\Controllers\alumnosController')->middleware(['auth:administrador']);
 Route::resource('docentes', 'App\Http\Controllers\docentesController')->middleware(['auth:administrador']);
 
