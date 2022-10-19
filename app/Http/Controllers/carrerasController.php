@@ -62,7 +62,7 @@ class carrerasController extends Controller
             $materiaNueva->save();
         }
 
-        return redirect('/carreras');
+        return redirect('/administrador/carreras');
     }
 
     /**

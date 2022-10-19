@@ -13,7 +13,7 @@
             </ul>
         </div>
 @endif
-<form action="/materias" method="POST">
+<form action="/administrador/materias" method="POST">
     @csrf
     <div class="mb-3">
         <label for="" class="form-label fs-3">Codigo</label>
@@ -51,7 +51,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-center">
-        <a href="/materias" class="btn btn-danger m-2">Cancelar</a>
+        <a href="/administrador/materias" class="btn btn-danger m-2">Cancelar</a>
         <button type="submit" class="btn btn-success m-2">Guardar</button>
     </div>
 </form>

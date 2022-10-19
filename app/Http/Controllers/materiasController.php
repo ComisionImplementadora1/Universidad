@@ -75,7 +75,7 @@ class materiasController extends Controller
             $debilNueva->save();
         }
 
-        return redirect('/materias');
+        return redirect('/administrador/materias');
     }
 
     /**

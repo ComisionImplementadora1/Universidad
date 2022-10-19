@@ -62,7 +62,7 @@ class departamentosController extends Controller
             $carreraNueva->save();
         }
 
-        return redirect('/departamentos');
+        return redirect('/administrador/departamentos');
     }
 
     /**

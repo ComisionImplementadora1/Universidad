@@ -42,7 +42,7 @@ class docentesController extends Controller
             'legajo' => 'required|integer|min:0|unique:docentes',
             'dni' => 'required|integer|min:0|unique:docentes',
             'fecha_de_nacimiento' => 'required|date',
-            'mail' => 'required|email',
+            'email' => 'required|email',
             'password' => 'required|confirmed',
         ]);
 
@@ -52,12 +52,12 @@ class docentesController extends Controller
         $docente->legajo = $request->get('legajo');
         $docente->dni = $request->get('dni');
         $docente->fecha_de_nacimiento = $request->get('fecha_de_nacimiento');
-        $docente->mail = $request->get('mail');
+        $docente->email = $request->get('email');
         $docente->password = bcrypt($request->get('password'));
 
         $docente->save();
 
-        return redirect('/docentes');
+        return redirect('/administrador/docentes');
     }
 
     /**

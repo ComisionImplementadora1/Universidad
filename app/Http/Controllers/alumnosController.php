@@ -43,7 +43,7 @@ class alumnosController extends Controller
             'lu' => 'required|integer|min:0|unique:alumnos',
             'dni' => 'required|integer|min:0||unique:docentes',
             'fecha_de_nacimiento' => 'required|date',
-            'mail' => 'required|email',
+            'email' => 'required|email',
             'carrera' => 'required',
             'password' => 'required|confirmed',
         ]);
@@ -54,13 +54,13 @@ class alumnosController extends Controller
         $alumno->lu = $request->get('lu');
         $alumno->dni = $request->get('dni');
         $alumno->fecha_de_nacimiento = $request->get('fecha_de_nacimiento');
-        $alumno->mail = $request->get('mail');
+        $alumno->email = $request->get('email');
         $alumno->id_carrera = $request->get('carrera');
         $alumno->password = bcrypt($request->get('password'));
 
         $alumno->save();
 
-        return redirect('/alumnos');
+        return redirect('/administrador/alumnos');
     }
 
     /**

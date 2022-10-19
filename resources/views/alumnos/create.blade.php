@@ -13,7 +13,7 @@
             </ul>
         </div>
 @endif
-<form action="/alumnos" method="POST">
+<form action="/administrador/alumnos" method="POST">
     @csrf
     <div class="row">
         <div class="mb-3 col">
@@ -38,7 +38,7 @@
     <div class="row">
         <div class="mb-3 col">
             <label for="" class="form-label fs-3">Mail</label>
-            <input type="text" class="form-control" id="mail" name="mail" value="{{ old('mail') }}">
+            <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}">
         </div>
         <div class="mb-3 col">
             <label for="" class="form-label fs-3">Carrera</label>
@@ -58,7 +58,7 @@
         <input type="text" class="form-control" id="password_confirmation" name="password_confirmation" value="{{ old('password_confirmation') }}">
     </div>
     <div class="d-flex justify-content-center">
-        <a href="/alumnos" class="btn btn-danger m-2">Cancelar</a>
+        <a href="/administrador/alumnos" class="btn btn-danger m-2">Cancelar</a>
         <button type="submit" class="btn btn-success m-2">Guardar</button>
     </div>
 </form>
