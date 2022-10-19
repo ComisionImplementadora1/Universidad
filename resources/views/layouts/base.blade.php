@@ -25,22 +25,56 @@
 
         <div class="collapse navbar-collapse justify-content-between navbar-dark bg-dark" id="toggleMobileMenu">
           <ul class="navbar-nav text-center">
-            <li><a class="nav-link active" href="/departamentos">Departamentos</a></li>
-            <li><a class="nav-link active" href="/carreras">Carreras</a></li>
-            <li><a class="nav-link active" href="/materias">Materias</a></li>
-            <li><a class="nav-link active" href="/docentes">Docentes</a></li>
-            <li><a class="nav-link active" href="/alumnos">Alumnos</a></li>
+            @if (Auth::guard('administrador')->check())
+              <li><a class="nav-link active" href="/administrador/departamentos">Departamentos</a></li>
+              <li><a class="nav-link active" href="/administrador/carreras">Carreras</a></li>
+              <li><a class="nav-link active" href="/administrador/materias">Materias</a></li>
+              <li><a class="nav-link active" href="/administrador/docentes">Docentes</a></li>
+              <li><a class="nav-link active" href="/administrador/alumnos">Alumnos</a></li>
+            @elseif (Auth::guard('docente')->check())
+              <li><a class="nav-link active" href="/docente/departamentos">Departamentos</a></li>
+              <li><a class="nav-link active" href="/docente/carreras">Carreras</a></li>
+              <li><a class="nav-link active" href="/docente/materias">Materias</a></li>
+            @else
+              <li><a class="nav-link active" href="/alumno/departamentos">Departamentos</a></li>
+              <li><a class="nav-link active" href="/alumno/carreras">Carreras</a></li>
+              <li><a class="nav-link active" href="/alumno/materias">Materias</a></li>
+            @endif
           </ul>
-          <!-- Authentication -->
-          <form class="navbar-nav" method="POST" action="{{ route('logout') }}">
-            @csrf
-            <x-dropdown-link :href="route('logout')"
-              class="nav-link active"
-              onclick="event.preventDefault();
-              this.closest('form').submit();">
-              {{ __('Log Out') }}
-            </x-dropdown-link>
-          </form>
+          @if (Auth::guard('administrador')->check())
+            <!-- Authentication -->
+            <form class="navbar-nav" method="POST" action="{{ route('administrador.logout') }}">
+              @csrf
+              <x-dropdown-link :href="route('administrador.logout')"
+                class="nav-link active"
+                onclick="event.preventDefault();
+                this.closest('form').submit();">
+                {{ __('Log Out') }}
+              </x-dropdown-link>
+            </form>
+          @elseif (Auth::guard('docente')->check())
+            <!-- Authentication -->
+            <form class="navbar-nav" method="POST" action="{{ route('docente.logout') }}">
+              @csrf
+              <x-dropdown-link :href="route('docente.logout')"
+                class="nav-link active"
+                onclick="event.preventDefault();
+                this.closest('form').submit();">
+                {{ __('Log Out') }}
+              </x-dropdown-link>
+            </form>
+          @else
+            <!-- Authentication -->
+            <form class="navbar-nav" method="POST" action="{{ route('alumno.logout') }}">
+              @csrf
+              <x-dropdown-link :href="route('alumno.logout')"
+                class="nav-link active"
+                onclick="event.preventDefault();
+                this.closest('form').submit();">
+                {{ __('Log Out') }}
+              </x-dropdown-link>
+            </form>
+          @endif
 
         </div>
       </nav>

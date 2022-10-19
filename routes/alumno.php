@@ -20,13 +20,6 @@ Route::prefix('alumno')->name('alumno.')->group(function () {
         ->middleware('auth:alumno')
         ->name('dashboard');
 
-    Route::get('/register', [RegisteredUserController::class, 'create'])
-        ->middleware('guest:alumno')
-        ->name('register');
-
-    Route::post('/register', [RegisteredUserController::class, 'store'])
-        ->middleware('guest:alumno');
-
     Route::get('/login', [AuthenticatedSessionController::class, 'create'])
         ->middleware('guest:alumno')
         ->name('login');
@@ -34,42 +27,16 @@ Route::prefix('alumno')->name('alumno.')->group(function () {
     Route::post('/login', [AuthenticatedSessionController::class, 'store'])
         ->middleware('guest:alumno');
 
-    Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
-        ->middleware('guest:alumno')
-        ->name('password.request');
-
-    Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
-        ->middleware('guest:alumno')
-        ->name('password.email');
-
-    Route::get('/reset-password/{token}', [NewPasswordController::class, 'create'])
-        ->middleware('guest:alumno')
-        ->name('password.reset');
-
-    Route::post('/reset-password', [NewPasswordController::class, 'store'])
-        ->middleware('guest:alumno')
-        ->name('password.update');
-
-    Route::get('/verify-email', [EmailVerificationPromptController::class, '__invoke'])
-        ->middleware('auth:alumno')
-        ->name('verification.notice');
-
-    Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
-        ->middleware(['auth:alumno', 'signed', 'throttle:6,1'])
-        ->name('verification.verify');
-
-    Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-        ->middleware(['auth:alumno', 'throttle:6,1'])
-        ->name('verification.send');
-
-    Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
-        ->middleware('auth:alumno')
-        ->name('password.confirm');
-
-    Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
-        ->middleware('auth:alumno');
-
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
         ->middleware('auth:alumno')
         ->name('logout');
+    
+    Route::resource('materias', 'App\Http\Controllers\materiasController')
+        ->middleware('auth:alumno');
+    
+    Route::resource('carreras', 'App\Http\Controllers\carrerasController')
+        ->middleware('auth:alumno');
+    
+    Route::resource('departamentos', 'App\Http\Controllers\departamentosController')
+        ->middleware('auth:alumno');
 });

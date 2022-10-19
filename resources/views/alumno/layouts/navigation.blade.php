@@ -12,9 +12,9 @@
 
     <div class="collapse navbar-collapse justify-content-between navbar-dark bg-dark" id="toggleMobileMenu">
       <ul class="navbar-nav text-center">
-        <li><a class="nav-link active" href="/departamentos">Departamentos</a></li>
-        <li><a class="nav-link active" href="/carreras">Carreras</a></li>
-        <li><a class="nav-link active" href="/materias">Materias</a></li>
+        <li><a class="nav-link active" href="/alumno/departamentos">Departamentos</a></li>
+        <li><a class="nav-link active" href="/alumno/carreras">Carreras</a></li>
+        <li><a class="nav-link active" href="/alumno/materias">Materias</a></li>
       </ul>
       <!-- Authentication -->
       <form method="POST" action="{{ route('alumno.logout') }}">

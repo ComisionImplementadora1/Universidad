@@ -12,11 +12,11 @@
 
     <div class="collapse navbar-collapse justify-content-between navbar-dark bg-dark" id="toggleMobileMenu">
       <ul class="navbar-nav text-center">
-        <li><a class="nav-link active" href="/departamentos">Departamentos</a></li>
-        <li><a class="nav-link active" href="/carreras">Carreras</a></li>
-        <li><a class="nav-link active" href="/materias">Materias</a></li>
-        <li><a class="nav-link active" href="/docentes">Docentes</a></li>
-        <li><a class="nav-link active" href="/alumnos">Alumnos</a></li>
+        <li><a class="nav-link active" href="/administrador/departamentos">Departamentos</a></li>
+        <li><a class="nav-link active" href="/administrador/carreras">Carreras</a></li>
+        <li><a class="nav-link active" href="/administrador/materias">Materias</a></li>
+        <li><a class="nav-link active" href="/administrador/docentes">Docentes</a></li>
+        <li><a class="nav-link active" href="/administrador/alumnos">Alumnos</a></li>
       </ul>
       <!-- Authentication -->
       <form method="POST" action="{{ route('administrador.logout') }}">

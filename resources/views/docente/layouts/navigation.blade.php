@@ -12,14 +12,14 @@
 
     <div class="collapse navbar-collapse justify-content-between navbar-dark bg-dark" id="toggleMobileMenu">
       <ul class="navbar-nav text-center">
-        <li><a class="nav-link active" href="/departamentos">Departamentos</a></li>
-        <li><a class="nav-link active" href="/carreras">Carreras</a></li>
-        <li><a class="nav-link active" href="/materias">Materias</a></li>
+        <li><a class="nav-link active" href="/docente/departamentos">Departamentos</a></li>
+        <li><a class="nav-link active" href="/docente/carreras">Carreras</a></li>
+        <li><a class="nav-link active" href="/docente/materias">Materias</a></li>
       </ul>
       <!-- Authentication -->
-      <form method="POST" action="{{ route('alumno.logout') }}">
+      <form method="POST" action="{{ route('docente.logout') }}">
         @csrf
-            <x-dropdown-link :href="route('alumno.logout')"
+            <x-dropdown-link :href="route('docente.logout')"
                     onclick="event.preventDefault();
                                 this.closest('form').submit();">
                 {{ __('Log Out') }}
