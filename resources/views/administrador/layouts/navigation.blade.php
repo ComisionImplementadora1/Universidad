@@ -19,7 +19,7 @@
         <li><a class="nav-link active" href="/administrador/alumnos">Alumnos</a></li>
       </ul>
       <!-- Authentication -->
-      <form method="POST" action="{{ route('administrador.logout') }}">
+      <form class="navbar-nav" method="POST" action="{{ route('administrador.logout') }}">
         @csrf
             <x-dropdown-link :href="route('administrador.logout')"
                     onclick="event.preventDefault();

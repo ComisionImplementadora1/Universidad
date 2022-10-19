@@ -17,7 +17,7 @@
         <li><a class="nav-link active" href="/docente/materias">Materias</a></li>
       </ul>
       <!-- Authentication -->
-      <form method="POST" action="{{ route('docente.logout') }}">
+      <form class="navbar-nav" method="POST" action="{{ route('docente.logout') }}">
         @csrf
             <x-dropdown-link :href="route('docente.logout')"
                     onclick="event.preventDefault();
