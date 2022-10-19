@@ -14,7 +14,13 @@
         </ul>
 
         <div class="container text-center">
-            <a class="btn btn-light" href="/carreras">Volver</a>
+            @if (Auth::guard('administrador')->check())
+                <a class="btn btn-light" href="/administrador/carreras">Volver</a>
+            @elseif (Auth::guard('alumno')->check())
+                <a class="btn btn-light" href="/alumno/carreras">Volver</a>
+            @else
+                <a class="btn btn-light" href="/docente/carreras">Volver</a>
+            @endif
         </div>
     </div>
 </div>

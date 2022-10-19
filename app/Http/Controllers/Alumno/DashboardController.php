@@ -16,6 +16,6 @@ class DashboardController extends Controller
 
 
     public function index(){
-        return view('alumno.dashboard');
+        return view('dashboard');
     }
 }
