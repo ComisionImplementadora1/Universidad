@@ -45,7 +45,7 @@ class materiasController extends Controller
         $fuertes = $request->input('fuertes');
         $request->validate([
             'codigo'=> 'required|alpha_num|min:0|unique:materias',
-            'nombre'=> 'required|regex:/^[\pL\s]+$/u|min:3',
+            'nombre'=> 'required|regex:/(^[\pL0-9 ]+)$/u|min:3',
             'fuertes.*' => 'sometimes|alpha_num|distinct|exists:materias,codigo',
             'debiles.*' => [
                 'sometimes','alpha_num','distinct','exists:materias,codigo', 
