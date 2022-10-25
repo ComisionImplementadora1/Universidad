@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use App\Models\carrera;
 use App\Models\departamento;
+use App\Models\Inscriptos_carreras;
 use App\Models\materia;
 use App\Models\materias_de_carrera;
+use Auth;
 
 class carrerasController extends Controller
 {
@@ -19,7 +21,16 @@ class carrerasController extends Controller
     public function index()
     {
         $carreras = carrera::paginate(20);
-        return view('carreras.index')->with('carreras',$carreras);
+        
+        $carreras_inscripto_array = Inscriptos_carreras::where('id_alumno', Auth::user()->id)->pluck('id_carrera')->toArray();;
+        
+        $carreras_inscripto = carrera::whereIn('id',$carreras_inscripto_array)->get();
+        $carreras_no_inscripto = carrera::whereNotIn('id',$carreras_inscripto_array)->get();
+        
+        return view('carreras.index')
+            ->with('carreras',$carreras)
+            ->with('carreras_inscripto',$carreras_inscripto)
+            ->with('carreras_no_inscripto',$carreras_no_inscripto);
     }
 
     /**
