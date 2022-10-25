@@ -9,6 +9,7 @@ use App\Http\Controllers\Administrador\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Administrador\Auth\RegisteredUserController;
 use App\Http\Controllers\Administrador\Auth\VerifyEmailController;
 use App\Http\Controllers\Administrador\DashboardController;
+use App\Http\Controllers\comisionesController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('administrador')->name('administrador.')->group(function () {
@@ -47,5 +48,14 @@ Route::prefix('administrador')->name('administrador.')->group(function () {
         ->middleware('auth:administrador');
 
     Route::resource('comisiones', 'App\Http\Controllers\comisionesController')
+        ->middleware('auth:administrador');
+
+    Route::get('/comisiones/{id}/profesor', [comisionesController::class, 'showProfesor'])
+        ->middleware('auth:administrador');
+    
+    Route::put('/comisiones/{id}/profesor', [comisionesController::class, 'storeProfesor'])
+        ->middleware('auth:administrador');
+    
+    Route::delete('/comisiones/{id}/profesor', [comisionesController::class, 'deleteProfesor'])
         ->middleware('auth:administrador');
 });

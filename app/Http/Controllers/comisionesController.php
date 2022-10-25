@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\comision;
+use App\Models\docente;
 
 class comisionesController extends Controller
 {
@@ -97,5 +98,59 @@ class comisionesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Muestra el profesor de la comision.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showProfesor($id)
+    {
+        $comision = comision::find($id);
+        if ($comision->id_profesor == null){
+            $profesor = null;
+        }else{
+            $profesor = docente::find($comision->id_profesor);
+        }
+        return view('comisiones.profesor')
+        ->with('comision',$comision)
+        ->with('profesor',$profesor);
+    }
+
+    /**
+     * Carga el profesor en la comision.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function storeProfesor(Request $request, $id)
+    {
+        $request->validate([
+            'legajo' => 'required|numeric|exists:docentes',
+        ]);
+
+        $profesor = docente::where('legajo', $request->get('legajo'))->first();
+        $comision = comision::find($id);
+        $comision->id_profesor = $profesor->id;
+        $comision->save();
+
+        return redirect('/administrador/comisiones');
+    }
+
+    /**
+     * Desvincula al profesor de la comision.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteProfesor($id)
+    {
+        $comision = comision::find($id);
+        $comision->id_profesor = null;
+        $comision->save();
+        return redirect('/administrador/comisiones');
     }
 }
