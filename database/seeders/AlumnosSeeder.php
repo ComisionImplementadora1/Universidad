@@ -22,7 +22,6 @@ class AlumnosSeeder extends Seeder
             'dni' => '32432423',
             'fecha_de_nacimiento' => '2001-09-20',
             'email' => 'her_ind@outlook.com',
-            'id_carrera' => '3',
             'password' => bcrypt('123'),
             ]);
 
@@ -33,7 +32,6 @@ class AlumnosSeeder extends Seeder
             'dni' => '41123543',
             'fecha_de_nacimiento' => '2001-08-02',
             'email' => 'ori.diaz@gmail.cm',
-            'id_carrera' => '1',
             'password' => bcrypt('123'),
          ]);
 
@@ -44,7 +42,6 @@ class AlumnosSeeder extends Seeder
             'dni' => '40987786',
             'fecha_de_nacimiento' => '2001-10-01',
             'email' => 'peterperez@live.com',
-            'id_carrera' => '3',
             'password' => bcrypt('123'),
          ]);
 
@@ -55,7 +52,6 @@ class AlumnosSeeder extends Seeder
             'dni' => '38765678',
             'fecha_de_nacimiento' => '2001-05-06',
             'email' => 'iraozdk@gmail.com',
-            'id_carrera' => '2',
             'password' => bcrypt('123'),
          ]);
 
@@ -66,7 +62,6 @@ class AlumnosSeeder extends Seeder
             'dni' => '32345654',
             'fecha_de_nacimiento' => '2000-02-01',
             'email' => 'mercadoluciana@gmial.com',
-            'id_carrera' => '2',
             'password' => bcrypt('123'),
          ]);
 
@@ -77,7 +72,6 @@ class AlumnosSeeder extends Seeder
             'dni' => '43543654',
             'fecha_de_nacimiento' => '2000-06-01',
             'email' => 'uri_pz@gmail.com',
-            'id_carrera' => '1',
             'password' => bcrypt('123'),
          ]);
     }
