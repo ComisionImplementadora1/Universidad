@@ -40,6 +40,7 @@ class alumnosController extends Controller
     {
         $request->validate([
             'nombre' => 'required|regex:/^[\pL\s]+$/u|min:3',
+            'apellido' => 'required|regex:/^[\pL\s]+$/u|min:3',
             'lu' => 'required|integer|min:0|unique:alumnos',
             'dni' => 'required|integer|min:0||unique:docentes',
             'fecha_de_nacimiento' => 'required|date',
@@ -51,6 +52,7 @@ class alumnosController extends Controller
         $alumno = new alumno();
 
         $alumno->nombre = $request->get('nombre');
+        $alumno->apellido = $request->get('apellido');
         $alumno->lu = $request->get('lu');
         $alumno->dni = $request->get('dni');
         $alumno->fecha_de_nacimiento = $request->get('fecha_de_nacimiento');

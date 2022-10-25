@@ -16,7 +16,8 @@ class AlumnosSeeder extends Seeder
     public function run()
     {
         DB::table('alumnos')->insert([
-            'nombre'=>'Hernan Indigo',
+            'nombre'=>'Hernan',
+            'apellido'=> 'Indigo',
             'lu' => '101205',
             'dni' => '32432423',
             'fecha_de_nacimiento' => '2001-09-20',
@@ -26,7 +27,8 @@ class AlumnosSeeder extends Seeder
             ]);
 
         DB::table('alumnos')->insert([
-            'nombre'=>'Oriana Diaz',
+            'nombre'=>'Oriana',
+            'apellido'=> 'Diaz',
             'lu' => '101206',
             'dni' => '41123543',
             'fecha_de_nacimiento' => '2001-08-02',
@@ -36,7 +38,8 @@ class AlumnosSeeder extends Seeder
          ]);
 
          DB::table('alumnos')->insert([
-            'nombre'=>'Pedro Perez',
+            'nombre'=>'Pedro',
+            'apellido'=> 'Perez',
             'lu' => '101207',
             'dni' => '40987786',
             'fecha_de_nacimiento' => '2001-10-01',
@@ -46,7 +49,8 @@ class AlumnosSeeder extends Seeder
          ]);
 
          DB::table('alumnos')->insert([
-            'nombre'=>'Derek Iraoz',
+            'nombre'=>'Derek',
+            'apellido'=> 'Iraoz',
             'lu' => '101208',
             'dni' => '38765678',
             'fecha_de_nacimiento' => '2001-05-06',
@@ -56,7 +60,8 @@ class AlumnosSeeder extends Seeder
          ]);
 
          DB::table('alumnos')->insert([
-            'nombre'=>'Luciana Mercado',
+            'nombre'=>'Luciana',
+            'apellido'=> 'Mercado',
             'lu' => '101209',
             'dni' => '32345654',
             'fecha_de_nacimiento' => '2000-02-01',
@@ -66,7 +71,8 @@ class AlumnosSeeder extends Seeder
          ]);
 
          DB::table('alumnos')->insert([
-            'nombre'=>'Uriel Ortiz',
+            'nombre'=>'Uriel',
+            'apellido'=> 'Ortiz',
             'lu' => '101210',
             'dni' => '43543654',
             'fecha_de_nacimiento' => '2000-06-01',
