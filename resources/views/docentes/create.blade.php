@@ -41,11 +41,11 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label fs-3">Contraseña</label>
-        <input type="text" class="form-control" id="password" name="password" value="{{ old('password') }}">
+        <input type="password" class="form-control" id="password" name="password" value="{{ old('password') }}">
     </div>
     <div class="mb-3">
         <label for="" class="form-label fs-3">Confirmar contraseña</label>
-        <input type="text" class="form-control" id="password_confirmation" name="password_confirmation" value="{{ old('password_confirmation') }}">
+        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" value="{{ old('password_confirmation') }}">
     </div>
     <div class="d-flex justify-content-center">
         <a href="/administrador/docentes" class="btn btn-danger m-2">Cancelar</a>
