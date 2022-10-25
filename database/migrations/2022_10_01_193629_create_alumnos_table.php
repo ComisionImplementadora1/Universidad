@@ -21,11 +21,6 @@ return new class extends Migration
             $table->unsignedInteger('dni')->unique();
             $table->date('fecha_de_nacimiento');
             $table->string('email')->unique();
-            
-            $table->unsignedBigInteger('id_carrera');
-            
-            $table->foreign('id_carrera')->references('id')->on('carreras')->onUpdate('cascade')->onDelete('cascade');
-            
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
