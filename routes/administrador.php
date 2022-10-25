@@ -45,4 +45,7 @@ Route::prefix('administrador')->name('administrador.')->group(function () {
     
     Route::resource('docentes', 'App\Http\Controllers\docentesController')
         ->middleware('auth:administrador');
+
+    Route::resource('comisiones', 'App\Http\Controllers\comisionesController')
+        ->middleware('auth:administrador');
 });
