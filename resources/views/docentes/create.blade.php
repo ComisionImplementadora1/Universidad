@@ -21,23 +21,29 @@
             <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre') }}">
         </div>
         <div class="mb-3 col">
-            <label for="" class="form-label fs-3">Legajo</label>
-            <input type="text" class="form-control" id="legajo" name="legajo" value="{{ old('legajo') }}">
+            <label for="" class="form-label fs-3">Apellido</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" value="{{ old('apellido') }}">
         </div>
     </div>
     <div class="row">
         <div class="mb-3 col">
+            <label for="" class="form-label fs-3">Legajo</label>
+            <input type="text" class="form-control" id="legajo" name="legajo" value="{{ old('legajo') }}">
+        </div>
+        <div class="mb-3 col">
             <label for="" class="form-label fs-3">DNI</label>
             <input type="text" class="form-control" id="dni" name="dni" value="{{ old('dni') }}">
         </div>
+    </div>
+    <div class="row">
         <div class="mb-3 col">
             <label for="" class="form-label fs-3">Fecha de nacimiento</label>
             <input type="date" class="form-control" id="fecha_de_nacimiento" name="fecha_de_nacimiento" value="{{ old('fecha_de_nacimiento') }}">
         </div>
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label fs-3">Mail</label>
-        <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}">
+        <div class="mb-3">
+            <label for="" class="form-label fs-3">Mail</label>
+            <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}">
+        </div>
     </div>
     <div class="mb-3">
         <label for="" class="form-label fs-3">Contraseña</label>
