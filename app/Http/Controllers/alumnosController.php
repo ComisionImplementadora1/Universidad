@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\alumno;
 use App\Models\carrera;
+use App\Models\Inscriptos_carreras;
+use Auth;
 
 class alumnosController extends Controller
 {
@@ -108,5 +110,17 @@ class alumnosController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function inscripcion_carrera($id_carrera){
+
+        $inscripcion_carrera = new Inscriptos_carreras();
+
+        $inscripcion_carrera->id_alumno = Auth::user()->id;
+        $inscripcion_carrera->id_carrera = $id_carrera;
+
+        $inscripcion_carrera->save();
+
+        return redirect('/alumno/carreras');
     }
 }
