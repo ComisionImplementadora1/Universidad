@@ -12,4 +12,8 @@ class carrera extends Model
     public function materias(){
         return $this->belongsToMany(materia::class, 'materias_de_carreras', 'id_carrera', 'id_materia');
     }
+
+    public function alumnos_inscriptos(){
+        return $this->belongsToMany(Alumno::class, 'inscriptos_carreras', 'id_alumno', 'id_carrera');
+    }
 }
