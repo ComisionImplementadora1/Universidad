@@ -8,6 +8,7 @@ use App\Models\docente;
 use App\Models\materia;
 use App\Models\alumno;
 use App\Models\ayudante;
+use App\Models\inscriptos_comision;
 
 class comisionesController extends Controller
 {
@@ -41,6 +42,17 @@ class comisionesController extends Controller
     {
         $comision = comision::find($id);
         return view('comisiones.ayudantes_create')->with('comision',$comision);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function createInscripto($id)
+    {
+        $comision = comision::find($id);
+        return view('comisiones.inscripto_create')->with('comision',$comision);
     }
 
     /**
@@ -185,6 +197,19 @@ class comisionesController extends Controller
     }
 
     /**
+     * Muestra a los inscriptos de la comision.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showInscriptos($id)
+    {
+        $comision = comision::find($id);
+        return view('comisiones.inscriptos')
+        ->with('comision',$comision);
+    }
+
+    /**
      * Carga el profesor en la comision.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -270,6 +295,28 @@ class comisionesController extends Controller
     }
 
     /**
+     * Carga al inscripto en la comision.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function storeInscripto(Request $request, $id)
+    {
+        $request->validate([
+            'lu' => 'required|numeric|exists:alumnos',
+        ]);
+
+        $inscriptoNuevo = new inscriptos_comision();
+        $inscriptoNuevo->id_comision = $id;
+        $inscripto = alumno::where('lu', $request->get('lu'))->first();
+        $inscriptoNuevo->id_alumno = $inscripto->id;
+        $inscriptoNuevo->save();
+
+        return redirect('/administrador/comisiones/');
+    }
+
+    /**
      * Desvincula al profesor de la comision.
      *
      * @param  int  $id
@@ -315,10 +362,25 @@ class comisionesController extends Controller
      * Desvincula al ayudante de la comision.
      *
      * @param  int  $id
+     * @param  int  $id_ayudante
      * @return \Illuminate\Http\Response
      */
-    public function deleteAyudante($id)
+    public function deleteAyudante($id, $id_ayudante)
     {
+        $ayudante = ayudante::where('id_ayudante',$id_ayudante);
+        $ayudante->delete();
         return redirect('/administrador/comisiones');
+    }
+
+    /**
+     * Desvincula al inscripto de la comision.
+     *
+     * @param  int  $id
+     * @param  int  $id_inscripto
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteInscripto($id, $id_inscripto)
+    {
+
     }
 }

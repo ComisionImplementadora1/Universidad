@@ -24,7 +24,7 @@
             <label for="" class="form-label fs-3">Mail</label>
             <input type="text" class="form-control" name="mail" value="{{$ayudante->email}}" readonly>
         </div>
-        <form class="col mt-5" data-bs-action="/administrador/comisiones/{{$comision->id}}/ayudantes" action="" method="POST">
+        <form class="col mt-5" data-bs-action="/administrador/comisiones/{{$comision->id}}/ayudantes/{{$ayudante->id}}" action="" method="POST">
             @csrf
             @method('DELETE') 
                 <button class="btn btn-danger">-</button>

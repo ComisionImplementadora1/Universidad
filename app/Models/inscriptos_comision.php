@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class inscriptos extends Model
+class inscriptos_comision extends Model
 {
     use HasFactory;
+    protected $table = "inscriptos_comision";
 }
