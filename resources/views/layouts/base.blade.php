@@ -31,6 +31,7 @@
               <li><a class="nav-link active" href="/administrador/materias">Materias</a></li>
               <li><a class="nav-link active" href="/administrador/docentes">Docentes</a></li>
               <li><a class="nav-link active" href="/administrador/alumnos">Alumnos</a></li>
+              <li><a class="nav-link active" href="/administrador/comisiones">Comision cursado</a></li>
             @elseif (Auth::guard('docente')->check())
               <li><a class="nav-link active" href="/docente/departamentos">Departamentos</a></li>
               <li><a class="nav-link active" href="/docente/carreras">Carreras</a></li>

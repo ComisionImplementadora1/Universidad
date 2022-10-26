@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('comisiones', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('codigo')->uniqe();
+            $table->unsignedInteger('codigo')->unique();
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->unsignedInteger('cupo');
 
-            $table->unsignedBigInteger('id_profesor');
-            $table->unsignedBigInteger('id_asistente');
-            $table->unsignedBigInteger('id_materia');
+            $table->unsignedBigInteger('id_profesor')->nullable();
+            $table->unsignedBigInteger('id_asistente')->nullable();
+            $table->unsignedBigInteger('id_materia')->nullable();
 
             $table->foreign('id_profesor')->references('id')->on('docentes')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('id_asistente')->references('id')->on('docentes')->onUpdate('cascade')->onDelete('cascade');
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comisions');
+        Schema::dropIfExists('comisiones');
     }
 };
