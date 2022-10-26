@@ -58,4 +58,22 @@ Route::prefix('administrador')->name('administrador.')->group(function () {
     
     Route::delete('/comisiones/{id}/profesor', [comisionesController::class, 'deleteProfesor'])
         ->middleware('auth:administrador');
+
+    Route::get('/comisiones/{id}/materia', [comisionesController::class, 'showMateria'])
+        ->middleware('auth:administrador');
+    
+    Route::put('/comisiones/{id}/materia', [comisionesController::class, 'storeMateria'])
+        ->middleware('auth:administrador');
+    
+    Route::delete('/comisiones/{id}/materia', [comisionesController::class, 'deleteMateria'])
+        ->middleware('auth:administrador');
+    
+    Route::get('/comisiones/{id}/asistente', [comisionesController::class, 'showAsistente'])
+        ->middleware('auth:administrador');
+    
+    Route::put('/comisiones/{id}/asistente', [comisionesController::class, 'storeAsistente'])
+        ->middleware('auth:administrador');
+    
+    Route::delete('/comisiones/{id}/asistente', [comisionesController::class, 'deleteAsistente'])
+        ->middleware('auth:administrador');
 });

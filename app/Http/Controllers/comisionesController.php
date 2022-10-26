@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\comision;
 use App\Models\docente;
+use App\Models\materia;
+use App\Models\alumno;
 
 class comisionesController extends Controller
 {
@@ -120,6 +122,44 @@ class comisionesController extends Controller
     }
 
     /**
+     * Muestra la materia de la comision.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showMateria($id)
+    {
+        $comision = comision::find($id);
+        if ($comision->id_materia == null){
+            $materia = null;
+        }else{
+            $materia = materia::find($comision->id_materia);
+        }
+        return view('comisiones.materia')
+        ->with('comision',$comision)
+        ->with('materia',$materia);
+    }
+
+    /**
+     * Muestra al asistente de la comision.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showAsistente($id)
+    {
+        $comision = comision::find($id);
+        if ($comision->id_asistente == null){
+            $asistente = null;
+        }else{
+            $asistente = docente::find($comision->id_asistente);
+        }
+        return view('comisiones.asistente')
+        ->with('comision',$comision)
+        ->with('asistente',$asistente);
+    }
+
+    /**
      * Carga el profesor en la comision.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -141,6 +181,48 @@ class comisionesController extends Controller
     }
 
     /**
+     * Carga el materia en la comision.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function storeMateria(Request $request, $id)
+    {
+        $request->validate([
+            'codigo' => 'required|numeric|exists:materias',
+        ]);
+
+        $materia = materia::where('codigo', $request->get('codigo'))->first();
+        $comision = comision::find($id);
+        $comision->id_materia = $materia->id;
+        $comision->save();
+
+        return redirect('/administrador/comisiones');
+    }
+
+    /**
+     * Carga al asistente en la comision.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function storeAsistente(Request $request, $id)
+    {
+        $request->validate([
+            'legajo' => 'required|numeric|exists:docentes',
+        ]);
+
+        $asistente = docente::where('legajo', $request->get('legajo'))->first();
+        $comision = comision::find($id);
+        $comision->id_asistente = $asistente->id;
+        $comision->save();
+
+        return redirect('/administrador/comisiones');
+    }
+
+    /**
      * Desvincula al profesor de la comision.
      *
      * @param  int  $id
@@ -150,6 +232,34 @@ class comisionesController extends Controller
     {
         $comision = comision::find($id);
         $comision->id_profesor = null;
+        $comision->save();
+        return redirect('/administrador/comisiones');
+    }
+
+    /**
+     * Desvincula a la materia de la comision.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteMateria($id)
+    {
+        $comision = comision::find($id);
+        $comision->id_materia = null;
+        $comision->save();
+        return redirect('/administrador/comisiones');
+    }
+
+    /**
+     * Desvincula al asistente de la comision.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteAsistente($id)
+    {
+        $comision = comision::find($id);
+        $comision->id_asistente = null;
         $comision->save();
         return redirect('/administrador/comisiones');
     }
