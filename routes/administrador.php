@@ -86,10 +86,10 @@ Route::prefix('administrador')->name('administrador.')->group(function () {
     Route::post('/comisiones/{id}/ayudantes/create', [comisionesController::class, 'storeAyudante'])
         ->middleware('auth:administrador');
 
-    Route::delete('/comisiones/{id}/ayudantes/{$id_ayudante}', [comisionesController::class, 'deleteAyudante'])
+    Route::delete('/comisiones/{id}/ayudantes/{id_ayudante}', [comisionesController::class, 'deleteAyudante'])
         ->middleware('auth:administrador');
 
-        Route::get('/comisiones/{id}/inscriptos', [comisionesController::class, 'showInscriptos'])
+    Route::get('/comisiones/{id}/inscriptos', [comisionesController::class, 'showInscriptos'])
         ->middleware('auth:administrador');
 
     Route::get('/comisiones/{id}/inscriptos/create', [comisionesController::class, 'createInscripto'])

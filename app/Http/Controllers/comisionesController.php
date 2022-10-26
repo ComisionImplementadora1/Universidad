@@ -367,7 +367,7 @@ class comisionesController extends Controller
      */
     public function deleteAyudante($id, $id_ayudante)
     {
-        $ayudante = ayudante::where('id_ayudante',$id_ayudante);
+        $ayudante = ayudante::where(['id_ayudante' => $id_ayudante, 'id_comision' => $id])->first();
         $ayudante->delete();
         return redirect('/administrador/comisiones');
     }
