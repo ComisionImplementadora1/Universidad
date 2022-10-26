@@ -8,7 +8,12 @@ use App\Models\carrera;
 use App\Models\materias_de_carrera;
 use App\Models\correlativas_debiles;
 use App\Models\correlativas_fuertes;
+use App\Models\Inscriptos_carreras;
+use App\Models\inscriptos_comision;
+use App\Models\comision;
 use App\Rules\CorrelativasRule;
+use Auth;
+use Arr;
 
 class materiasController extends Controller
 {
@@ -19,8 +24,41 @@ class materiasController extends Controller
      */
     public function index()
     {
+        $materias_visibles = [];
+        $materias_inscripto = [];
+        $materias_no_inscripto = [];
+        $carreras_inscripto_array = Inscriptos_carreras::where('id_alumno', Auth::user()->id)->pluck('id_carrera')->toArray();
+        $carreras_inscripto = carrera::whereIn('id',$carreras_inscripto_array)->get();
+        
+        foreach($carreras_inscripto as $carrera){
+            $materias_array = materias_de_carrera::where('id_carrera', $carrera->id)->pluck('id_materia')->toArray();
+            $materias = materia::whereIn('id',$materias_array)->get();
+            
+            foreach($materias as $materia){
+                if(!in_array($materia, $materias_visibles)){
+                    $materias_visibles = Arr::add($materias_visibles, $materia->id ,$materia);
+                }
+            }
+
+            $comisiones_inscripto_array = inscriptos::where('id_alumno', Auth::user()->id)->pluck('id_comision')->toArray();
+            foreach($comisiones_inscripto_array as $comision_inscripto){
+                $materia_aux = materia::find($comision_inscripto->id_materia);
+                $materias_inscripto = Arr::add($materias_inscripto, $materia_aux->id, $materia_aux);
+            }
+
+            foreach($materias_visibles as $materia_visible){
+                if(!in_array($materia_visible, $materias_inscripto)){
+                    $materias_no_inscripto = Arr::add($materias_no_inscripto, $materia_visible->id, $materia_visible);
+                }
+            }
+        }
+
         $materias = materia::paginate(20);
-        return view('materias.index')->with('materias', $materias);
+
+        return view('materias.index')
+            ->with('materias',$materias)
+            ->with('materias_visibles',$materias_inscripto)
+            ->with('materias_visibles',$materias_no_inscripto);
     }
 
     /**
