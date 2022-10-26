@@ -7,7 +7,7 @@
     <a href="/administrador/comisiones/{{$comision->id}}/inscriptos/create" class="btn btn-success">Agregar</a>
 </div>
 @foreach ($comision->inscriptos as $inscripto)
-    <div class="row d-flex align-items-center mt-5">
+    <div class="row d-flex align-items-center my-5">
         <div class="col text-center">
             <label for="" class="form-label fs-3">LU</label>
             <input type="text" class="form-control" name="lu" value="{{$inscripto->lu}}" readonly>
@@ -24,7 +24,7 @@
             <label for="" class="form-label fs-3">Mail</label>
             <input type="text" class="form-control" name="mail" value="{{$inscripto->email}}" readonly>
         </div>
-        <form class="col mt-5" data-bs-action="/administrador/comisiones/{{$comision->id}}/inscriptos/{{$inscripto->id}}" action="" method="POST">
+        <form class="col mt-5" action="/administrador/comisiones/{{$comision->id}}/inscriptos/{{$inscripto->id}}" method="POST">
             @csrf
             @method('DELETE') 
                 <button class="btn btn-danger">-</button>

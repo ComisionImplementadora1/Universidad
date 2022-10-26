@@ -98,5 +98,7 @@ Route::prefix('administrador')->name('administrador.')->group(function () {
     Route::post('/comisiones/{id}/inscriptos/create', [comisionesController::class, 'storeInscripto'])
         ->middleware('auth:administrador');
 
+    Route::delete('/comisiones/{id}/inscriptos/{id_inscripto}', [comisionesController::class, 'deleteInscripto'])
+        ->middleware('auth:administrador');
 
 });

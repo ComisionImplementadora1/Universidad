@@ -381,6 +381,8 @@ class comisionesController extends Controller
      */
     public function deleteInscripto($id, $id_inscripto)
     {
-
+        $inscripto = inscriptos_comision::where(['id_alumno' => $id_inscripto, 'id_comision' => $id])->first();
+        $inscripto->delete();
+        return redirect('/administrador/comisiones');
     }
 }
