@@ -7,6 +7,7 @@ use App\Models\comision;
 use App\Models\docente;
 use App\Models\materia;
 use App\Models\alumno;
+use App\Models\ayudante;
 
 class comisionesController extends Controller
 {
@@ -29,6 +30,17 @@ class comisionesController extends Controller
     public function create()
     {
         return view('comisiones.create');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function createAyudante($id)
+    {
+        $comision = comision::find($id);
+        return view('comisiones.ayudantes_create')->with('comision',$comision);
     }
 
     /**
@@ -160,6 +172,19 @@ class comisionesController extends Controller
     }
 
     /**
+     * Muestra a los ayudantes de la comision.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showAyudantes($id)
+    {
+        $comision = comision::find($id);
+        return view('comisiones.ayudantes')
+        ->with('comision',$comision);
+    }
+
+    /**
      * Carga el profesor en la comision.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -223,6 +248,28 @@ class comisionesController extends Controller
     }
 
     /**
+     * Carga al ayudante en la comision.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function storeAyudante(Request $request, $id)
+    {
+        $request->validate([
+            'legajo' => 'required|numeric|exists:docentes',
+        ]);
+
+        $ayudanteNuevo = new ayudante();
+        $ayudanteNuevo->id_comision = $id;
+        $ayudante = docente::where('legajo', $request->get('legajo'))->first();
+        $ayudanteNuevo->id_ayudante = $ayudante->id;
+        $ayudanteNuevo->save();
+
+        return redirect('/administrador/comisiones/');
+    }
+
+    /**
      * Desvincula al profesor de la comision.
      *
      * @param  int  $id
@@ -261,6 +308,17 @@ class comisionesController extends Controller
         $comision = comision::find($id);
         $comision->id_asistente = null;
         $comision->save();
+        return redirect('/administrador/comisiones');
+    }
+
+    /**
+     * Desvincula al ayudante de la comision.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteAyudante($id)
+    {
         return redirect('/administrador/comisiones');
     }
 }
