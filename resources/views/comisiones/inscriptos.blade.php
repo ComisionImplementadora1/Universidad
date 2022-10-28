@@ -3,9 +3,11 @@
 @section('contenido')
 
 <h2 class="d-flex justify-content-center my-5">Inscriptos de la comision {{$comision->codigo}}</h2>
-<div class="d-flex justify-content-end">
-    <a href="/administrador/comisiones/{{$comision->id}}/inscriptos/create" class="btn btn-success">Agregar</a>
-</div>
+@if (Auth::guard('administrador')->check())
+    <div class="d-flex justify-content-end">
+        <a href="/administrador/comisiones/{{$comision->id}}/inscriptos/create" class="btn btn-success">Agregar</a>
+    </div>
+@endif
 @foreach ($comision->inscriptos as $inscripto)
     <div class="row d-flex align-items-center my-5">
         <div class="col text-center">
