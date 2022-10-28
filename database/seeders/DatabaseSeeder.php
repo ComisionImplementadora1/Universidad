@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdministradoresSeeder::class);
         $this->call(ComisionCursadoSeeder::class);
         $this->call(AyudantesComisionSeeder::class);
+        $this->call(InscriptosCarreraSeeder::class);
         $this->call(InscriptosComisionSeeder::class);
     }
 }

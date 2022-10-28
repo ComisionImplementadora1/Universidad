@@ -27,11 +27,6 @@ class InscriptosComisionSeeder extends Seeder
 
         DB::table('inscriptos_comision')->insert([
             'id_comision'=>'1',
-            'id_alumno' => '3',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'1',
             'id_alumno' => '4',
         ]);
 

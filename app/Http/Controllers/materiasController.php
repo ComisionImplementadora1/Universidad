@@ -40,9 +40,10 @@ class materiasController extends Controller
                 }
             }
 
-            $comisiones_inscripto_array = inscriptos::where('id_alumno', Auth::user()->id)->pluck('id_comision')->toArray();
+            $comisiones_inscripto_array = inscriptos_comision::where('id_alumno', Auth::user()->id)->get();
             foreach($comisiones_inscripto_array as $comision_inscripto){
-                $materia_aux = materia::find($comision_inscripto->id_materia);
+                $comision = comision::find($comision_inscripto->id_comision);
+                $materia_aux = materia::find($comision->id_materia);
                 $materias_inscripto = Arr::add($materias_inscripto, $materia_aux->id, $materia_aux);
             }
 
@@ -57,8 +58,8 @@ class materiasController extends Controller
 
         return view('materias.index')
             ->with('materias',$materias)
-            ->with('materias_visibles',$materias_inscripto)
-            ->with('materias_visibles',$materias_no_inscripto);
+            ->with('materias_inscripto',$materias_inscripto)
+            ->with('materias_no_inscripto',$materias_no_inscripto);
     }
 
     /**
