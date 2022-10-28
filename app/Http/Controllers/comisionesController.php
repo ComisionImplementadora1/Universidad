@@ -9,6 +9,7 @@ use App\Models\materia;
 use App\Models\alumno;
 use App\Models\ayudante;
 use App\Models\inscriptos_comision;
+use Auth;
 
 class comisionesController extends Controller
 {
@@ -384,5 +385,16 @@ class comisionesController extends Controller
         $inscripto = inscriptos_comision::where(['id_alumno' => $id_inscripto, 'id_comision' => $id])->first();
         $inscripto->delete();
         return redirect('/administrador/comisiones');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexDocente()
+    {
+        $comisiones = comision::where('id_profesor', Auth::user()->id)->get();
+        return view('comisiones.docente_index')->with('comisiones',$comisiones);
     }
 }

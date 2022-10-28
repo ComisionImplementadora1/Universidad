@@ -48,4 +48,8 @@ class Alumno extends Authenticatable
     public function carreras_inscripto(){
         return $this->belongsToMany(carrera::class, 'inscriptos_carreras', 'id_alumno', 'id_carrera');
     }
+
+    public function comisiones_inscripto(){
+        return $this->belongsToMany(comision::class, 'inscriptos_comision', 'id_comision', 'id_alumno');
+    }
 }

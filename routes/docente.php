@@ -9,6 +9,7 @@ use App\Http\Controllers\Docente\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Docente\Auth\RegisteredUserController;
 use App\Http\Controllers\Docente\Auth\VerifyEmailController;
 use App\Http\Controllers\Docente\DashboardController;
+use App\Http\Controllers\comisionesController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('docente')->name('docente.')->group(function () {
@@ -38,5 +39,11 @@ Route::prefix('docente')->name('docente.')->group(function () {
         ->middleware('auth:docente');
     
     Route::resource('departamentos', 'App\Http\Controllers\departamentosController')
+        ->middleware('auth:docente');
+
+    Route::get('comisiones', [comisionesController::class, 'indexDocente'])
+        ->middleware('auth:docente');
+    
+    Route::get('/comisiones/{id}/materia', [comisionesController::class, 'showMateria'])
         ->middleware('auth:docente');
 });
