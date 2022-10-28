@@ -46,4 +46,7 @@ Route::prefix('docente')->name('docente.')->group(function () {
     
     Route::get('/comisiones/{id}/materia', [comisionesController::class, 'showMateria'])
         ->middleware('auth:docente');
+
+    Route::get('/comisiones/{id}/inscriptos', [comisionesController::class, 'showInscriptos'])
+        ->middleware('auth:docente');
 });
