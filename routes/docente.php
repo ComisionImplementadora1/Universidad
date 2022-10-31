@@ -49,4 +49,11 @@ Route::prefix('docente')->name('docente.')->group(function () {
 
     Route::get('/comisiones/{id}/inscriptos', [comisionesController::class, 'showInscriptos'])
         ->middleware('auth:docente');
+
+    Route::put('/comisiones/{id}/inscriptos/{id_inscripto}', [comisionesController::class, 'updateInscripto'])
+        ->middleware('auth:docente');
+
+    Route::get('/comisiones/{id}/inscriptos/{id_inscripto}', [comisionesController::class, 'editInscripto'])
+        ->middleware('auth:docente');
+
 });

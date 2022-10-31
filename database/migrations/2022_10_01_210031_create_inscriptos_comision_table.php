@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_comision');
             $table->unsignedBigInteger('id_alumno');
+            $table->string('estado')->nullable();
+            $table->integer('nota')->nullable();
             
             $table->foreign('id_comision')->references('id')->on('comisiones')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('id_alumno')->references('id')->on('alumnos')->onUpdate('cascade')->onDelete('cascade');

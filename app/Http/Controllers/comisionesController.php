@@ -105,6 +105,23 @@ class comisionesController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @param int $id_inscripto
+     * @return \Illuminate\Http\Response
+     */
+    public function editInscripto($id, $id_inscripto)
+    {
+        $alumno = alumno::find($id_inscripto);
+        $comision = comision::find($id);
+        $inscripto = inscriptos_comision::where(['id_comision'=>$id,'id_alumno'=>$id_inscripto])->first();
+
+        return view('comisiones.inscriptos_edit')->with('inscripto', $inscripto)
+        ->with('alumno', $alumno)->with('comision',$comision);
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -114,6 +131,29 @@ class comisionesController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @param  int  $id_inscripto
+     * @return \Illuminate\Http\Response
+     */
+    public function updateInscripto(Request $request, $id, $id_inscripto)
+    {
+        $request->validate([
+            'estado' => 'required',
+            'nota' => 'integer | min:0 | max:10',
+        ]);
+
+        $inscripto = inscriptos_comision::where(['id_comision'=>$id,'id_alumno'=>$id_inscripto])->first();
+        $inscripto->estado = $request->get('estado');
+        $inscripto->nota = $request->get('nota');
+        $inscripto->save();
+
+        return redirect('docente/comisiones');
     }
 
     /**
@@ -206,8 +246,10 @@ class comisionesController extends Controller
     public function showInscriptos($id)
     {
         $comision = comision::find($id);
+        $inscriptos_comision = inscriptos_comision::where('id_comision',$id)->get();
         return view('comisiones.inscriptos')
-        ->with('comision',$comision);
+        ->with('comision',$comision)
+        ->with('inscriptos_comision',$inscriptos_comision);
     }
 
     /**
