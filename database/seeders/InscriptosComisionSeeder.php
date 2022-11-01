@@ -15,7 +15,7 @@ class InscriptosComisionSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('inscriptos_comision')->insert([
+        /*DB::table('inscriptos_comision')->insert([
             'id_comision'=>'1',
             'id_alumno' => '1',
         ]);
@@ -53,6 +53,7 @@ class InscriptosComisionSeeder extends Seeder
         DB::table('inscriptos_comision')->insert([
             'id_comision'=>'2',
             'id_alumno' => '3',
+            'estado' => 'aprobado'
         ]);
 
         DB::table('inscriptos_comision')->insert([
@@ -78,6 +79,8 @@ class InscriptosComisionSeeder extends Seeder
         DB::table('inscriptos_comision')->insert([
             'id_comision'=>'3',
             'id_alumno' => '3',
+            'estado' => 'promocionado',
+            'nota' => '9'
         ]);
 
         DB::table('inscriptos_comision')->insert([
@@ -118,6 +121,6 @@ class InscriptosComisionSeeder extends Seeder
         DB::table('inscriptos_comision')->insert([
             'id_comision'=>'4',
             'id_alumno' => '6',
-        ]);
+        ]);*/
     }
 }

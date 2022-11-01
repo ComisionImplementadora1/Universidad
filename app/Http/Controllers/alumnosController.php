@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\alumno;
 use App\Models\carrera;
 use App\Models\Inscriptos_carreras;
+use App\Models\correlativas_debiles;
+use App\Models\correlativas_fuertes;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 class alumnosController extends Controller
 {
@@ -123,4 +126,49 @@ class alumnosController extends Controller
 
         return redirect('/alumno/carreras');
     }
+
+    public function control_correlativas($id_materia){
+        
+        $correlativas_debiles = correlativas_debiles::where('id_materia_origen',$id_materia)->get();
+        $correlativas_fuertes = correlativas_fuertes::where('id_materia_origen',$id_materia)->get();
+
+        $materias_cursada_aprobada = DB::table('materias')
+                                        ->join('comisiones', 'materias.id', '=', 'comisiones.id_materia')
+                                        ->join('inscriptos_comision', 'comisiones.id', '=', 'inscriptos_comision.id_comision')
+                                        ->where('inscriptos_comision.id_alumno', '=', Auth::user()->id)
+                                        ->where('inscriptos_comision.estado', '=', 'aprobado')
+                                        ->select('materias.id')
+                                        ->get();
+        
+        $materias_cursada_promocionada = DB::table('materias')
+                                            ->join('comisiones', 'materias.id', '=', 'comisiones.id_materia')
+                                            ->join('inscriptos_comision', 'comisiones.id', '=', 'inscriptos_comision.id_comision')
+                                            ->where('inscriptos_comision.id_alumno', '=', Auth::user()->id)
+                                            ->where('inscriptos_comision.estado', '=', 'promocionado')
+                                            ->select('materias.id')
+                                            ->get();
+
+        $materias_final_aprobado = DB::table('materias')
+                                    ->join('examenes_finales', 'materias.id', '=', 'examenes_finales.id_materia')
+                                    ->join('inscriptos_examenes', 'examenes_finales.id', '=', 'inscriptos_examenes.id_examen')
+                                    ->where('inscriptos_examenes.id_alumno', '=', Auth::user()->id)
+                                    ->where('inscriptos_examenes.estado', '=', 'aprobado')
+                                    ->select('materias.id')
+                                    ->get();
+
+        foreach($correlativas_debiles as $correlativa_debil){
+            if(!in_array($correlativa_debil->id_materia_origen, (array) $materias_cursada_aprobada) || !in_array($correlativa_debil->id_materia_origen, (array) $materias_cursada_promocionada)){
+                return redirect()->back()->with('error', 'No satisface las correlativas debiles');   
+            }
+        }
+
+        foreach($correlativas_fuertes as $correlativa_fuerte){
+            if(!in_array($correlativa_fuerte->id_materia_origen, (array) $materias_final_aprobado) || !in_array($correlativa_fuerte->id_materia_origen, (array) $materias_final_aprobado)){
+                return redirect()->back()->with('error', 'No satisface las correlativas fuertes');   
+            }
+        }
+
+        
+    }
+
 }

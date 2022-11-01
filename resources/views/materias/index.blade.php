@@ -1,6 +1,13 @@
 @extends('layouts.base')
 
 @section('contenido')
+
+<div class="d-flex justify-content-center">
+    @if ($message = Session::get('error'))
+        <div class="alert alert-danger alert-block"> {{ $message }} </div>
+    @endif
+</div>
+
 <h1 class="d-flex justify-content-center">Materias</h1>
 <div class="d-flex justify-content-end">
     @if (Auth::guard('administrador')->check())
@@ -54,7 +61,7 @@
                         </a> 
                     </td>
                     <td>
-                        <a class="btn btn-success" href="#">Inscribirse</a> 
+                        <a class="btn btn-success" href="control-correlativas/{{$materia->id}}">Inscribirse</a> 
                     </td>
                 </tr>
             @endforeach

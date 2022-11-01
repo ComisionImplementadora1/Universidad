@@ -28,5 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AyudantesComisionSeeder::class);
         $this->call(InscriptosCarreraSeeder::class);
         $this->call(InscriptosComisionSeeder::class);
+        $this->call(ExamenesFinalesSeeder::class);
+        $this->call(InscriptosExamenesSeeder::class);
     }
 }
