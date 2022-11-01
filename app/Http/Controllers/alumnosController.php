@@ -159,13 +159,13 @@ class alumnosController extends Controller
                                     ->get();
 
         foreach($correlativas_debiles as $correlativa_debil){
-            if(!in_array($correlativa_debil->id_materia_origen, (array) $materias_cursada_aprobada) || !in_array($correlativa_debil->id_materia_origen, (array) $materias_cursada_promocionada)){
+            if(!in_array($correlativa_debil->id_materia_origen, (array) $materias_cursada_aprobada) && !in_array($correlativa_debil->id_materia_origen, (array) $materias_cursada_promocionada)){
                 return redirect()->back()->with('error', 'No satisface las correlativas debiles');   
             }
         }
 
         foreach($correlativas_fuertes as $correlativa_fuerte){
-            if(!in_array($correlativa_fuerte->id_materia_origen, (array) $materias_final_aprobado) || !in_array($correlativa_fuerte->id_materia_origen, (array) $materias_final_aprobado)){
+            if(!in_array($correlativa_fuerte->id_materia_origen, (array) $materias_final_aprobado) && !in_array($correlativa_fuerte->id_materia_origen, (array) $materias_cursada_promocionada)){
                 return redirect()->back()->with('error', 'No satisface las correlativas fuertes');   
             }
         }
