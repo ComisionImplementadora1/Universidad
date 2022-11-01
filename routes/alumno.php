@@ -49,4 +49,7 @@ Route::prefix('alumno')->name('alumno.')->group(function () {
 
     Route::get('/control-correlativas/inscripcion-comision/{id_materia}', [alumnosController::class, 'inscripcion_comision'])
         ->middleware('auth:alumno');
+
+    Route::get('/historial-cursadas', [alumnosController::class, 'notas_cursado'])
+        ->middleware('auth:alumno');
 });

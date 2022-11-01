@@ -44,6 +44,7 @@
               <li><a class="nav-link active" href="/alumno/departamentos">Departamentos</a></li>
               <li><a class="nav-link active" href="/alumno/carreras">Carreras</a></li>
               <li><a class="nav-link active" href="/alumno/materias">Materias</a></li>
+              <li><a class="nav-link active" href="/alumno/historial-cursadas">Historial cursadas</a></li>
             @endif
           </ul>
           @if (Auth::guard('administrador')->check())

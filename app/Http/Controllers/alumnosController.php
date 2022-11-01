@@ -188,4 +188,14 @@ class alumnosController extends Controller
 
         return redirect('alumno/materias');
     }
+    
+    public function notas_cursado(){
+        $materias_inscripto = DB::table('materias')
+                                ->join('comisiones', 'materias.id', '=', 'comisiones.id_materia')
+                                ->join('inscriptos_comision', 'comisiones.id', '=', 'inscriptos_comision.id_comision')
+                                ->where('inscriptos_comision.id_alumno', '=', Auth::user()->id)
+                                ->get();
+        
+        return view('alumnos.notas')->with('materias',$materias_inscripto);
+    }
 }

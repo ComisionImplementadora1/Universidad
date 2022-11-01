@@ -15,112 +15,17 @@ class InscriptosComisionSeeder extends Seeder
      */
     public function run()
     {
-        /*DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'1',
-            'id_alumno' => '1',
-        ]);
-
         DB::table('inscriptos_comision')->insert([
             'id_comision'=>'1',
-            'id_alumno' => '2',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'1',
-            'id_alumno' => '4',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'1',
-            'id_alumno' => '5',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'1',
-            'id_alumno' => '6',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'2',
-            'id_alumno' => '1',
-        ]);
-        
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'2',
-            'id_alumno' => '2',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'2',
             'id_alumno' => '3',
             'estado' => 'aprobado'
         ]);
 
         DB::table('inscriptos_comision')->insert([
             'id_comision'=>'2',
-            'id_alumno' => '4',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'2',
-            'id_alumno' => '5',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'2',
-            'id_alumno' => '6',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'3',
-            'id_alumno' => '1',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'3',
             'id_alumno' => '3',
             'estado' => 'promocionado',
-            'nota' => '9'
+            'nota' => '7'
         ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'3',
-            'id_alumno' => '4',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'3',
-            'id_alumno' => '5',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'4',
-            'id_alumno' => '1',
-        ]);
-        
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'4',
-            'id_alumno' => '2',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'4',
-            'id_alumno' => '3',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'4',
-            'id_alumno' => '4',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'4',
-            'id_alumno' => '5',
-        ]);
-
-        DB::table('inscriptos_comision')->insert([
-            'id_comision'=>'4',
-            'id_alumno' => '6',
-        ]);*/
     }
 }
