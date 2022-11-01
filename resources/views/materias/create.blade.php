@@ -59,6 +59,7 @@
 <script>
     var contadorMateriasFuertes = 0;
     var contadorMateriasDebiles = 0;
+    const materias = {!!$correlativas!!};
 
     function agregarNuevaMateriaFuerte(){
         const divFuertes = document.getElementById('corrFuertes');
@@ -72,17 +73,23 @@
             labelFuertes.setAttribute("id", "labelFuertes");
             divFuertes.appendChild(labelFuertes);
         }
+
         const divMateria =  document.createElement('div');
         divMateria.classList.add('row');
         divMateria.classList.add('my-2');
         divMateria.classList.add('mx-auto');
-        divMateria.style.width = '300px';
+        divMateria.style.width = '500px';
+        divMateria.setAttribute("id","div"+contadorMateriasFuertes+"");
+        
         const inputMateria = document.createElement('input');
         inputMateria.classList.add('form-control');
         inputMateria.classList.add('mx-4');
         inputMateria.setAttribute("type", "text");
+        inputMateria.style.width = '50px';
         inputMateria.classList.add('col');
         inputMateria.setAttribute("name", "fuertes["+contadorMateriasFuertes+"]");
+        inputMateria.setAttribute("id",""+contadorMateriasFuertes+"");
+        inputMateria.setAttribute("onchange", "agregarNombreMateriaFuerte()");
         
         const eliminarMateria = document.createElement('a');
         eliminarMateria.classList.add('btn');
@@ -109,6 +116,28 @@
         contadorMateriasFuertes = contadorMateriasFuertes + 1;
     }
 
+    function agregarNombreMateriaFuerte(){
+        const contActual= contadorMateriasFuertes-1;
+        const divMateria = document.getElementById("div"+contActual+"");
+        const inputNombreMateria = document.createElement('label');
+        inputNombreMateria.classList.add('d-flex');
+        inputNombreMateria.classList.add('justify-content-center');
+        inputNombreMateria.style.width = '300px';
+        inputNombreMateria.classList.add('mb-4');
+        const nombreMateria = document.getElementById(""+contActual+"");
+        var nombre = "";
+        materias.forEach(materia=>{
+            if(materia.codigo == nombreMateria.value){
+               nombre = materia.nombre;
+               
+            }
+        })
+        inputNombreMateria.innerHTML = ""+nombre+"";
+        inputNombreMateria.classList.add('col');
+
+        divMateria.appendChild(inputNombreMateria);
+    }
+    
     function agregarNuevaMateriaDebil(){
         const divDebiles = document.getElementById('corrDebiles');
         if (contadorMateriasDebiles==0){
