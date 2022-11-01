@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\alumno;
 use App\Models\carrera;
+use App\Models\comision;
 use App\Models\Inscriptos_carreras;
 use App\Models\correlativas_debiles;
 use App\Models\correlativas_fuertes;
+use App\Models\inscriptos_comision;
 use Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -168,7 +170,22 @@ class alumnosController extends Controller
             }
         }
 
+        $comisiones = comision::where('id_materia',$id_materia)->get();
+
+        return view('materias.index_comisiones')->with('comisiones',$comisiones);
         
     }
 
+    public function inscripcion_comision($id_comision){
+        
+        $inscripto_comision = new inscriptos_comision();
+
+        $inscripto_comision->id_alumno = Auth::user()->id;
+        $inscripto_comision->id_comision = $id_comision;
+        $inscripto_comision->estado = 'inscripto';
+
+        $inscripto_comision->save();
+
+        return redirect('alumno/materias');
+    }
 }

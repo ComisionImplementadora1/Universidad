@@ -46,4 +46,7 @@ Route::prefix('alumno')->name('alumno.')->group(function () {
 
     Route::get('/control-correlativas/{id_materia}', [alumnosController::class, 'control_correlativas'])
         ->middleware('auth:alumno');
+
+    Route::get('/control-correlativas/inscripcion-comision/{id_materia}', [alumnosController::class, 'inscripcion_comision'])
+        ->middleware('auth:alumno');
 });
