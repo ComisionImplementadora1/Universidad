@@ -27,6 +27,9 @@
     <div class="mb-3">
         <h3>Correlativas fuertes</h3>
         <div class="col" id="corrFuertes">
+            <div class="row fs-3 d-flex justify-content-center">
+                Código
+            </div>
         </div>
 
         <div class="d-flex justify-content-center mt-4">
@@ -40,6 +43,9 @@
     <div class="mb-3">
         <h3>Correlativas debiles</h3>
         <div class="col" id="corrDebiles">
+            <div class="row fs-3 d-flex justify-content-center">
+                Código
+            </div>
         </div>
 
         <div class="d-flex justify-content-center mt-4">
@@ -63,19 +69,10 @@
 
     function agregarNuevaMateriaFuerte(){
         const divFuertes = document.getElementById('corrFuertes');
-        if (contadorMateriasFuertes==0){
-            const labelFuertes =  document.createElement('label');
-            labelFuertes.classList.add('d-flex');
-            labelFuertes.classList.add('justify-content-center');
-            labelFuertes.classList.add('fs-3');
-            labelFuertes.classList.add('mb-4');
-            labelFuertes.innerHTML = "Codigo";
-            labelFuertes.setAttribute("id", "labelFuertes");
-            divFuertes.appendChild(labelFuertes);
-        }
 
         const divMateria =  document.createElement('div');
         divMateria.classList.add('row');
+        divMateria.classList.add('justify-content-md-center');
         divMateria.classList.add('my-2');
         divMateria.classList.add('mx-auto');
         divMateria.style.width = '500px';
@@ -85,7 +82,6 @@
         inputMateria.classList.add('form-control');
         inputMateria.classList.add('mx-4');
         inputMateria.setAttribute("type", "text");
-        inputMateria.style.width = '50px';
         inputMateria.classList.add('col');
         inputMateria.setAttribute("name", "fuertes["+contadorMateriasFuertes+"]");
         inputMateria.setAttribute("id",""+contadorMateriasFuertes+"");
@@ -95,9 +91,7 @@
         eliminarMateria.classList.add('btn');
         eliminarMateria.classList.add('btn-danger');
         eliminarMateria.classList.add('fw-bold');
-        eliminarMateria.classList.add('col');
-        eliminarMateria.style.width = '5px';
-
+        eliminarMateria.classList.add('col-1');
         eliminarMateria.innerHTML = "-";
 
         divMateria.appendChild(inputMateria);
@@ -106,11 +100,6 @@
 
         eliminarMateria.onclick = function() { 
             divFuertes.removeChild(divMateria);
-            contadorMateriasFuertes = contadorMateriasFuertes -1;
-            if (contadorMateriasFuertes == 0){
-                labelFuertes = document.getElementById("labelFuertes");
-                divFuertes.removeChild(labelFuertes);
-            }
         };
 
         contadorMateriasFuertes = contadorMateriasFuertes + 1;
@@ -119,55 +108,49 @@
     function agregarNombreMateriaFuerte(){
         const contActual= contadorMateriasFuertes-1;
         const divMateria = document.getElementById("div"+contActual+"");
-        const inputNombreMateria = document.createElement('label');
-        inputNombreMateria.classList.add('d-flex');
-        inputNombreMateria.classList.add('justify-content-center');
-        inputNombreMateria.style.width = '300px';
-        inputNombreMateria.classList.add('mb-4');
-        const nombreMateria = document.getElementById(""+contActual+"");
+        divMateria.style.width = '800px';
+        const labelNombreMateria = document.createElement('label');
+        labelNombreMateria.classList.add('text-center');
+        labelNombreMateria.classList.add('my-auto');
+        const codigoMateria = document.getElementById(""+contActual+"");
         var nombre = "";
         materias.forEach(materia=>{
-            if(materia.codigo == nombreMateria.value){
+            if(materia.codigo == codigoMateria.value){
                nombre = materia.nombre;
                
             }
         })
-        inputNombreMateria.innerHTML = ""+nombre+"";
-        inputNombreMateria.classList.add('col');
+        labelNombreMateria.innerHTML = ""+nombre+"";
+        labelNombreMateria.classList.add('col');
 
-        divMateria.appendChild(inputNombreMateria);
+        divMateria.appendChild(labelNombreMateria);
     }
     
     function agregarNuevaMateriaDebil(){
         const divDebiles = document.getElementById('corrDebiles');
-        if (contadorMateriasDebiles==0){
-            const labelDebiles =  document.createElement('label');
-            labelDebiles.classList.add('d-flex');
-            labelDebiles.classList.add('justify-content-center');
-            labelDebiles.classList.add('fs-3');
-            labelDebiles.classList.add('mb-4');
-            labelDebiles.innerHTML = "Codigo";
-            labelDebiles.setAttribute("id", "labelDebiles");
-            divDebiles.appendChild(labelDebiles);
-        }
+        
         const divMateria =  document.createElement('div');
         divMateria.classList.add('row');
+        divMateria.classList.add('justify-content-md-center');
         divMateria.classList.add('my-2');
         divMateria.classList.add('mx-auto');
-        divMateria.style.width = '300px';
+        divMateria.style.width = '500px';
+        divMateria.setAttribute("id","divDebil"+contadorMateriasDebiles+"");
+
         const inputMateria = document.createElement('input');
         inputMateria.classList.add('form-control');
         inputMateria.classList.add('mx-4');
         inputMateria.setAttribute("type", "text");
         inputMateria.classList.add('col');
         inputMateria.setAttribute("name", "debiles["+contadorMateriasDebiles+"]");
-        
+        inputMateria.setAttribute("id","debil"+contadorMateriasDebiles+"");
+        inputMateria.setAttribute("onchange","agregarNombreMateriaDebil()");
+
         const eliminarMateria = document.createElement('a');
         eliminarMateria.classList.add('btn');
         eliminarMateria.classList.add('btn-danger');
         eliminarMateria.classList.add('fw-bold');
-        eliminarMateria.classList.add('col');
-        eliminarMateria.style.width = '5px';
+        eliminarMateria.classList.add('col-1');
 
         eliminarMateria.innerHTML = "-";
 
@@ -177,14 +160,30 @@
 
         eliminarMateria.onclick = function() { 
             divDebiles.removeChild(divMateria);
-            contadorMateriasDebiles = contadorMateriasDebiles -1;
-            if (contadorMateriasDebiles == 0){
-                labelDebiles = document.getElementById("labelDebiles");
-                divDebiles.removeChild(labelDebiles);
-            }
         };
 
         contadorMateriasDebiles = contadorMateriasDebiles + 1;
+    }
+
+    function agregarNombreMateriaDebil(){
+        const contActual= contadorMateriasDebiles-1;
+        const divMateria = document.getElementById("divDebil"+contActual+"");
+        divMateria.style.width = '800px';
+        const labelNombreMateria = document.createElement('label');
+        labelNombreMateria.classList.add('text-center');
+        labelNombreMateria.classList.add('my-auto');
+        const codigoMateria = document.getElementById("debil"+contActual+"");
+        var nombre = "";
+        materias.forEach(materia=>{
+            if(materia.codigo == codigoMateria.value){
+               nombre = materia.nombre;
+               
+            }
+        })
+        labelNombreMateria.innerHTML = ""+nombre+"";
+        labelNombreMateria.classList.add('col');
+
+        divMateria.appendChild(labelNombreMateria);
     }
 </script>
 @endsection()
