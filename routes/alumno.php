@@ -9,6 +9,7 @@ use App\Http\Controllers\Alumno\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Alumno\Auth\RegisteredUserController;
 use App\Http\Controllers\Alumno\Auth\VerifyEmailController;
 use App\Http\Controllers\Alumno\DashboardController;
+use App\Http\Controllers\alumnosController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('alumno')->name('alumno.')->group(function () {
@@ -38,5 +39,17 @@ Route::prefix('alumno')->name('alumno.')->group(function () {
         ->middleware('auth:alumno');
     
     Route::resource('departamentos', 'App\Http\Controllers\departamentosController')
+        ->middleware('auth:alumno');
+
+    Route::get('/inscripcion-carrera/{id_carrera}', [alumnosController::class, 'inscripcion_carrera'])
+        ->middleware('auth:alumno');
+
+    Route::get('/control-correlativas/{id_materia}', [alumnosController::class, 'control_correlativas'])
+        ->middleware('auth:alumno');
+
+    Route::get('/control-correlativas/inscripcion-comision/{id_materia}', [alumnosController::class, 'inscripcion_comision'])
+        ->middleware('auth:alumno');
+
+    Route::get('/historial-cursadas', [alumnosController::class, 'notas_cursado'])
         ->middleware('auth:alumno');
 });

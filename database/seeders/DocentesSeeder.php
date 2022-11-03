@@ -16,7 +16,8 @@ class DocentesSeeder extends Seeder
     public function run()
     {
         DB::table('docentes')->insert([
-            'nombre'=>'Ana Falcon',
+            'nombre'=>'Ana',
+            'apellido'=>'Falcon',
             'legajo' => '88789',
             'dni' => '21234654',
             'fecha_de_nacimiento' => '1972-10-012',
@@ -25,7 +26,8 @@ class DocentesSeeder extends Seeder
         ]);
 
         DB::table('docentes')->insert([
-            'nombre'=>'Juana Perez',
+            'nombre'=>'Juana',
+            'apellido'=>'Perez',
             'legajo' => '88778',
             'dni' => '18434564',
             'fecha_de_nacimiento' => '1972-11-02',
@@ -34,7 +36,8 @@ class DocentesSeeder extends Seeder
         ]);
 
         DB::table('docentes')->insert([
-            'nombre'=>'Sergio Corpaz',
+            'nombre'=>'Sergio',
+            'apellido'=>'Corpaz',
             'legajo' => '99782',
             'dni' => '23098007',
             'fecha_de_nacimiento' => '1980-12-01',
@@ -43,7 +46,8 @@ class DocentesSeeder extends Seeder
         ]);
 
         DB::table('docentes')->insert([
-            'nombre'=>'Maximiliano Montesinos',
+            'nombre'=>'Maximiliano',
+            'apellido'=>'Montesinos',
             'legajo' => '25924',
             'dni' => '19456478',
             'fecha_de_nacimiento' => '1982-10-06',
@@ -52,7 +56,8 @@ class DocentesSeeder extends Seeder
         ]);
 
         DB::table('docentes')->insert([
-            'nombre'=>'Gabriel Fernandez',
+            'nombre'=>'Gabriel',
+            'apellido'=>'Fernandez',
             'legajo' => '66589',
             'dni' => '18566432',
             'fecha_de_nacimiento' => '1972-06-06',
@@ -61,7 +66,8 @@ class DocentesSeeder extends Seeder
         ]);
 
         DB::table('docentes')->insert([
-            'nombre'=>'Joaquin Navarro',
+            'nombre'=>'Joaquin',
+            'apellido'=>'Navarro',
             'legajo' => '89724',
             'dni' => '29432123',
             'fecha_de_nacimiento' =>'1972-08-01',
@@ -70,7 +76,8 @@ class DocentesSeeder extends Seeder
         ]);
 
         DB::table('docentes')->insert([
-            'nombre'=>'Diana Chavez',
+            'nombre'=>'Diana',
+            'apellido'=>'Chavez',
             'legajo' => '77891',
             'dni' => '22455567',
             'fecha_de_nacimiento' =>'1972-05-02',
@@ -79,7 +86,8 @@ class DocentesSeeder extends Seeder
         ]);
 
         DB::table('docentes')->insert([
-            'nombre'=>'Nicolas Pontet',
+            'nombre'=>'Nicolas',
+            'apellido'=>'Pontet',
             'legajo' => '77310',
             'dni' => '23459753',
             'fecha_de_nacimiento' =>'1972-06-01',
@@ -88,7 +96,8 @@ class DocentesSeeder extends Seeder
         ]);
 
         DB::table('docentes')->insert([
-            'nombre'=>'Cristian Angelini',
+            'nombre'=>'Cristian',
+            'apellido'=>'Angelini',
             'legajo' => '44710',
             'dni' => '20765432',
             'fecha_de_nacimiento' => '1972-03-03',
@@ -97,7 +106,8 @@ class DocentesSeeder extends Seeder
         ]);
 
         DB::table('docentes')->insert([
-            'nombre'=>'Laura Quiroz',
+            'nombre'=>'Laura',
+            'apellido'=>'Quiroz',
             'legajo' => '33471',
             'dni' => '21874764',
             'fecha_de_nacimiento' => '1972-05-04',

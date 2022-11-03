@@ -9,6 +9,8 @@ class comision extends Model
 {
     use HasFactory;
 
+    protected $table = "comisiones";
+
     public function ayudantes(){
         return $this->belongsToMany(docente::class, 'ayudantes', 'id_comision', 'id_ayudante');
     }

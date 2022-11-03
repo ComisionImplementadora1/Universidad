@@ -26,19 +26,25 @@
         <div class="collapse navbar-collapse justify-content-between navbar-dark bg-dark" id="toggleMobileMenu">
           <ul class="navbar-nav text-center">
             @if (Auth::guard('administrador')->check())
+              <li><a class="nav-link active" href="/administrador/">Inicio</a></li>
               <li><a class="nav-link active" href="/administrador/departamentos">Departamentos</a></li>
               <li><a class="nav-link active" href="/administrador/carreras">Carreras</a></li>
               <li><a class="nav-link active" href="/administrador/materias">Materias</a></li>
               <li><a class="nav-link active" href="/administrador/docentes">Docentes</a></li>
               <li><a class="nav-link active" href="/administrador/alumnos">Alumnos</a></li>
+              <li><a class="nav-link active" href="/administrador/comisiones">Comision cursado</a></li>
             @elseif (Auth::guard('docente')->check())
+              <li><a class="nav-link active" href="/docente/">Inicio</a></li>
               <li><a class="nav-link active" href="/docente/departamentos">Departamentos</a></li>
               <li><a class="nav-link active" href="/docente/carreras">Carreras</a></li>
               <li><a class="nav-link active" href="/docente/materias">Materias</a></li>
+              <li><a class="nav-link active" href="/docente/comisiones">Comision cursado</a></li>
             @else
+              <li><a class="nav-link active" href="/alumno/">Inicio</a></li>
               <li><a class="nav-link active" href="/alumno/departamentos">Departamentos</a></li>
               <li><a class="nav-link active" href="/alumno/carreras">Carreras</a></li>
               <li><a class="nav-link active" href="/alumno/materias">Materias</a></li>
+              <li><a class="nav-link active" href="/alumno/historial-cursadas">Historial cursadas</a></li>
             @endif
           </ul>
           @if (Auth::guard('administrador')->check())

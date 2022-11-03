@@ -9,6 +9,7 @@
     <thead>
         <tr>
             <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
             <th scope="col">Legajo</th>
             <th scope="col">DNI</th>
             <th scope="col">Fecha de nacimiento</th>
@@ -20,10 +21,11 @@
         @foreach ($docentes as $docente)
             <tr>
                 <td>{{$docente->nombre}}</td>
+                <td>{{$docente->apellido}}</td>
                 <td>{{$docente->legajo}}</td>
                 <td>{{$docente->dni}}</td>
                 <td>{{$docente->fecha_de_nacimiento}}</td>
-                <td>{{$docente->mail}}</td>
+                <td>{{$docente->email}}</td>
                 <td>
                     <a class="btn btn-info" href="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
