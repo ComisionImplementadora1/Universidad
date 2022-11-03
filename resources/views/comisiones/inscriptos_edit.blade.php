@@ -46,6 +46,7 @@
                 nota.readOnly = false;
             }else{
                 nota.readOnly = true;
+                nota.value = "";
             }
         }
     </script>

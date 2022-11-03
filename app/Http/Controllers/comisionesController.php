@@ -145,7 +145,7 @@ class comisionesController extends Controller
     {
         $request->validate([
             'estado' => 'required',
-            'nota' => 'integer | min:0 | max:10',
+            'nota' => 'nullable | integer | min:0 | max:10',
         ]);
 
         $inscripto = inscriptos_comision::where(['id_comision'=>$id,'id_alumno'=>$id_inscripto])->first();
